@@ -1,0 +1,5039 @@
+[
+  {
+    "op": "core/column-rename",
+    "description": "Rename column NUM_NOTICE to id_objet",
+    "oldColumnName": "NUM_NOTICE",
+    "newColumnName": "id_objet"
+  },
+  {
+    "op": "core/column-rename",
+    "description": "Rename column TYPE_OEUVRE to type_objet",
+    "oldColumnName": "TYPE_OEUVRE",
+    "newColumnName": "type_objet"
+  },
+  {
+    "op": "core/column-split",
+    "description": "Split column type_objet by separator",
+    "engineConfig": {
+      "mode": "row-based",
+      "facets": []
+    },
+    "columnName": "type_objet",
+    "guessCellType": false,
+    "removeOriginalColumn": false,
+    "mode": "separator",
+    "separator": "; ",
+    "regex": false,
+    "maxColumns": 0
+  },
+  {
+    "op": "core/column-removal",
+    "description": "Remove column type_objet",
+    "columnName": "type_objet"
+  },
+  {
+    "op": "core/column-rename",
+    "description": "Rename column type_objet 1 to type_objet",
+    "oldColumnName": "type_objet 1",
+    "newColumnName": "type_objet"
+  },
+  {
+    "op": "core/text-transform",
+    "description": "Text transform on cells in column type_objet using expression grel:value.replace(\" ;\",\"\")",
+    "engineConfig": {
+      "mode": "row-based",
+      "facets": []
+    },
+    "columnName": "type_objet",
+    "expression": "grel:value.replace(\" ;\",\"\")",
+    "onError": "keep-original",
+    "repeat": false,
+    "repeatCount": 10
+  },
+  {
+    "op": "core/mass-edit",
+    "description": "Mass edit cells in column type_objet",
+    "engineConfig": {
+      "mode": "row-based",
+      "facets": []
+    },
+    "columnName": "type_objet",
+    "expression": "value",
+    "edits": [
+      {
+        "fromBlank": false,
+        "fromError": false,
+        "from": [
+          "vase "
+        ],
+        "to": "vase"
+      }
+    ]
+  },
+  {
+    "op": "core/column-split",
+    "description": "Split column TITRES by separator",
+    "engineConfig": {
+      "mode": "row-based",
+      "facets": []
+    },
+    "columnName": "TITRES",
+    "guessCellType": true,
+    "removeOriginalColumn": true,
+    "mode": "separator",
+    "separator": "#",
+    "regex": false,
+    "maxColumns": 0
+  },
+  {
+    "op": "core/column-removal",
+    "description": "Remove column TITRES 2",
+    "columnName": "TITRES 2"
+  },
+  {
+    "op": "core/column-removal",
+    "description": "Remove column PRECISION_TYPE_OEUVRE",
+    "columnName": "PRECISION_TYPE_OEUVRE"
+  },
+  {
+    "op": "core/column-rename",
+    "description": "Rename column TITRES 1 to nom_objet",
+    "oldColumnName": "TITRES 1",
+    "newColumnName": "nom_objet"
+  },
+  {
+    "op": "core/column-removal",
+    "description": "Remove column COMMENTAIRE_GENERAL",
+    "columnName": "COMMENTAIRE_GENERAL"
+  },
+  {
+    "op": "core/column-removal",
+    "description": "Remove column COTE_NUM_INV",
+    "columnName": "COTE_NUM_INV"
+  },
+  {
+    "op": "core/column-rename",
+    "description": "Rename column LIEU_DE_CONSERVATION to conservation_nom\nconservation_nom\nconservation_nom",
+    "oldColumnName": "LIEU_DE_CONSERVATION",
+    "newColumnName": "conservation_nom\nconservation_nom\nconservation_nom"
+  },
+  {
+    "op": "core/column-removal",
+    "description": "Remove column PRECISION_LIEU_DE_CONSERVATION",
+    "columnName": "PRECISION_LIEU_DE_CONSERVATION"
+  },
+  {
+    "op": "core/column-removal",
+    "description": "Remove column INFORMATIONS_PRATIQUES",
+    "columnName": "INFORMATIONS_PRATIQUES"
+  },
+  {
+    "op": "core/column-rename",
+    "description": "Rename column COMMENTAIRE_DESCRIPTIF to description",
+    "oldColumnName": "COMMENTAIRE_DESCRIPTIF",
+    "newColumnName": "description"
+  },
+  {
+    "op": "core/column-removal",
+    "description": "Remove column ETAT_DE_CONSERVATION",
+    "columnName": "ETAT_DE_CONSERVATION"
+  },
+  {
+    "op": "core/column-removal",
+    "description": "Remove column PRECISION_ETAT_DE_CONSERVATION",
+    "columnName": "PRECISION_ETAT_DE_CONSERVATION"
+  },
+  {
+    "op": "core/column-removal",
+    "description": "Remove column RESTAURATION",
+    "columnName": "RESTAURATION"
+  },
+  {
+    "op": "core/column-removal",
+    "description": "Remove column PRECISION_RESTAURATION",
+    "columnName": "PRECISION_RESTAURATION"
+  },
+  {
+    "op": "core/column-split",
+    "description": "Split column MATIERES_ET_TECHNIQUES by separator",
+    "engineConfig": {
+      "mode": "row-based",
+      "facets": [
+        {
+          "mode": "text",
+          "caseSensitive": false,
+          "query": "",
+          "name": "COMMENTAIRE_DESCRIPTIF",
+          "type": "text",
+          "columnName": "COMMENTAIRE_DESCRIPTIF"
+        }
+      ]
+    },
+    "columnName": "MATIERES_ET_TECHNIQUES",
+    "guessCellType": false,
+    "removeOriginalColumn": false,
+    "mode": "separator",
+    "separator": "; /",
+    "regex": false,
+    "maxColumns": 0
+  },
+  {
+    "op": "core/column-removal",
+    "description": "Remove column MATIERES_ET_TECHNIQUES",
+    "columnName": "MATIERES_ET_TECHNIQUES"
+  },
+  {
+    "op": "core/column-removal",
+    "description": "Remove column MATIERES_ET_TECHNIQUES 2",
+    "columnName": "MATIERES_ET_TECHNIQUES 2"
+  },
+  {
+    "op": "core/column-removal",
+    "description": "Remove column MATIERES_ET_TECHNIQUES 3",
+    "columnName": "MATIERES_ET_TECHNIQUES 3"
+  },
+  {
+    "op": "core/column-removal",
+    "description": "Remove column NUMERO_DE_TIRAGE",
+    "columnName": "NUMERO_DE_TIRAGE"
+  },
+  {
+    "op": "core/column-removal",
+    "description": "Remove column FORMAT",
+    "columnName": "FORMAT"
+  },
+  {
+    "op": "core/column-rename",
+    "description": "Rename column MATIERES_ET_TECHNIQUES 1 to matiere_filtre\nmatiere_filtre",
+    "oldColumnName": "MATIERES_ET_TECHNIQUES 1",
+    "newColumnName": "matiere_filtre\nmatiere_filtre"
+  },
+  {
+    "op": "core/column-removal",
+    "description": "Remove column PROFONDEUR",
+    "columnName": "PROFONDEUR"
+  },
+  {
+    "op": "core/column-removal",
+    "description": "Remove column POIDS",
+    "columnName": "POIDS"
+  },
+  {
+    "op": "core/column-removal",
+    "description": "Remove column UNITE_DE_MESURE",
+    "columnName": "UNITE_DE_MESURE"
+  },
+  {
+    "op": "core/column-removal",
+    "description": "Remove column PRECISIONS_DIMENSIONS",
+    "columnName": "PRECISIONS_DIMENSIONS"
+  },
+  {
+    "op": "core/column-removal",
+    "description": "Remove column AUTRES_DIMENSIONS",
+    "columnName": "AUTRES_DIMENSIONS"
+  },
+  {
+    "op": "core/column-removal",
+    "description": "Remove column SUPPORT_DE_PRESENTATION",
+    "columnName": "SUPPORT_DE_PRESENTATION"
+  },
+  {
+    "op": "core/column-removal",
+    "description": "Remove column PRECISION_SUPPORT_DE_PRESENTATION",
+    "columnName": "PRECISION_SUPPORT_DE_PRESENTATION"
+  },
+  {
+    "op": "core/column-removal",
+    "description": "Remove column INSCRIPTIONS",
+    "columnName": "INSCRIPTIONS"
+  },
+  {
+    "op": "core/column-removal",
+    "description": "Remove column SUJETS",
+    "columnName": "SUJETS"
+  },
+  {
+    "op": "core/column-removal",
+    "description": "Remove column DECORS_ORNEMENTS_ILLUSTRATIONS",
+    "columnName": "DECORS_ORNEMENTS_ILLUSTRATIONS"
+  },
+  {
+    "op": "core/column-removal",
+    "description": "Remove column DECOR_ILLUSTRATIONS",
+    "columnName": "DECOR_ILLUSTRATIONS"
+  },
+  {
+    "op": "core/column-removal",
+    "description": "Remove column DECOR_PRECISIONS",
+    "columnName": "DECOR_PRECISIONS"
+  },
+  {
+    "op": "core/column-split",
+    "description": "Split column PERSONNES_ETUDIEES by separator",
+    "engineConfig": {
+      "mode": "row-based",
+      "facets": []
+    },
+    "columnName": "PERSONNES_ETUDIEES",
+    "guessCellType": false,
+    "removeOriginalColumn": false,
+    "mode": "separator",
+    "separator": " / / ",
+    "regex": false,
+    "maxColumns": 0
+  },
+  {
+    "op": "core/column-removal",
+    "description": "Remove column PERSONNES_ETUDIEES",
+    "columnName": "PERSONNES_ETUDIEES"
+  },
+  {
+    "op": "core/column-rename",
+    "description": "Rename column PERSONNES_ETUDIEES 1 to auteur_objet",
+    "oldColumnName": "PERSONNES_ETUDIEES 1",
+    "newColumnName": "auteur_objet"
+  },
+  {
+    "op": "core/mass-edit",
+    "description": "Mass edit cells in column auteur_objet",
+    "engineConfig": {
+      "mode": "row-based",
+      "facets": []
+    },
+    "columnName": "auteur_objet",
+    "expression": "value",
+    "edits": [
+      {
+        "fromBlank": false,
+        "fromError": false,
+        "from": [
+          "/ Relier aux fiches de peintres déjà créées. / attribué à ; manière de ;"
+        ],
+        "to": ""
+      }
+    ]
+  },
+  {
+    "op": "core/column-removal",
+    "description": "Remove column PERSONNES_ETUDIEES 2",
+    "columnName": "PERSONNES_ETUDIEES 2"
+  },
+  {
+    "op": "core/column-removal",
+    "description": "Remove column PERSONNES_ETUDIEES 3",
+    "columnName": "PERSONNES_ETUDIEES 3"
+  },
+  {
+    "op": "core/column-removal",
+    "description": "Remove column PERSONNES_ETUDIEES 4",
+    "columnName": "PERSONNES_ETUDIEES 4"
+  },
+  {
+    "op": "core/column-removal",
+    "description": "Remove column PERSONNES_ETUDIEES 5",
+    "columnName": "PERSONNES_ETUDIEES 5"
+  },
+  {
+    "op": "core/column-removal",
+    "description": "Remove column AUTRES_PERSONNES",
+    "columnName": "AUTRES_PERSONNES"
+  },
+  {
+    "op": "core/column-removal",
+    "description": "Remove column COMMENTAIRE_GENERAL2",
+    "columnName": "COMMENTAIRE_GENERAL2"
+  },
+  {
+    "op": "core/column-removal",
+    "description": "Remove column SIECLE",
+    "columnName": "SIECLE"
+  },
+  {
+    "op": "core/column-removal",
+    "description": "Remove column PERIODE_EXECUTION",
+    "columnName": "PERIODE_EXECUTION"
+  },
+  {
+    "op": "core/row-removal",
+    "description": "Remove rows",
+    "engineConfig": {
+      "mode": "row-based",
+      "facets": [
+        {
+          "omitError": false,
+          "expression": "row.starred",
+          "selectBlank": false,
+          "invert": false,
+          "selectError": false,
+          "selection": [
+            {
+              "v": {
+                "v": true,
+                "l": "true"
+              }
+            }
+          ],
+          "name": "Starred Rows",
+          "omitBlank": false,
+          "type": "list",
+          "columnName": ""
+        }
+      ]
+    }
+  },
+  {
+    "op": "core/column-removal",
+    "description": "Remove column TEXTE_LIEU_EXECUTION",
+    "columnName": "TEXTE_LIEU_EXECUTION"
+  },
+  {
+    "op": "core/column-removal",
+    "description": "Remove column PRECISIONS_LIEU_EXECUTION",
+    "columnName": "PRECISIONS_LIEU_EXECUTION"
+  },
+  {
+    "op": "core/column-removal",
+    "description": "Remove column PRECISIONS_CREATION_EXECUTION",
+    "columnName": "PRECISIONS_CREATION_EXECUTION"
+  },
+  {
+    "op": "core/column-removal",
+    "description": "Remove column FONDS",
+    "columnName": "FONDS"
+  },
+  {
+    "op": "core/column-removal",
+    "description": "Remove column FONDS_EN_RAPPORT",
+    "columnName": "FONDS_EN_RAPPORT"
+  },
+  {
+    "op": "core/column-removal",
+    "description": "Remove column PRECISIONS_STATUT_PROPRIETE",
+    "columnName": "PRECISIONS_STATUT_PROPRIETE"
+  },
+  {
+    "op": "core/column-rename",
+    "description": "Rename column DATE_ENTREE_COLLECTIONS to conservation_date_entree",
+    "oldColumnName": "DATE_ENTREE_COLLECTIONS",
+    "newColumnName": "conservation_date_entree"
+  },
+  {
+    "op": "core/text-transform",
+    "description": "Text transform on cells in column conservation_date_entree using expression grel:value.replace(\"Mai\",\"\")",
+    "engineConfig": {
+      "mode": "row-based",
+      "facets": [
+        {
+          "omitError": false,
+          "expression": "value",
+          "selectBlank": false,
+          "invert": false,
+          "selectError": false,
+          "selection": [
+            {
+              "v": {
+                "v": "Mai 1839",
+                "l": "Mai 1839"
+              }
+            }
+          ],
+          "name": "conservation_date_entree",
+          "omitBlank": false,
+          "type": "list",
+          "columnName": "conservation_date_entree"
+        }
+      ]
+    },
+    "columnName": "conservation_date_entree",
+    "expression": "grel:value.replace(\"Mai\",\"\")",
+    "onError": "keep-original",
+    "repeat": false,
+    "repeatCount": 10
+  },
+  {
+    "op": "core/column-removal",
+    "description": "Remove column PRECISIONS_PROPRIETE",
+    "columnName": "PRECISIONS_PROPRIETE"
+  },
+  {
+    "op": "core/column-removal",
+    "description": "Remove column COLLECTION",
+    "columnName": "COLLECTION"
+  },
+  {
+    "op": "core/column-removal",
+    "description": "Remove column HISTORIQUE_DE_COLLECTION",
+    "columnName": "HISTORIQUE_DE_COLLECTION"
+  },
+  {
+    "op": "core/column-removal",
+    "description": "Remove column PREC_SITE_DECOUVERTE",
+    "columnName": "PREC_SITE_DECOUVERTE"
+  },
+  {
+    "op": "core/column-removal",
+    "description": "Remove column COMM_HIST",
+    "columnName": "COMM_HIST"
+  },
+  {
+    "op": "core/column-removal",
+    "description": "Remove column PROTECTION",
+    "columnName": "PROTECTION"
+  },
+  {
+    "op": "core/column-removal",
+    "description": "Remove column COPYRIGHT_OEUVRE",
+    "columnName": "COPYRIGHT_OEUVRE"
+  },
+  {
+    "op": "core/column-removal",
+    "description": "Remove column EDITION",
+    "columnName": "EDITION"
+  },
+  {
+    "op": "core/column-removal",
+    "description": "Remove column IMPRESSION",
+    "columnName": "IMPRESSION"
+  },
+  {
+    "op": "core/column-removal",
+    "description": "Remove column TOME_VOLUME",
+    "columnName": "TOME_VOLUME"
+  },
+  {
+    "op": "core/column-removal",
+    "description": "Remove column ISBN",
+    "columnName": "ISBN"
+  },
+  {
+    "op": "core/column-removal",
+    "description": "Remove column ISSN",
+    "columnName": "ISSN"
+  },
+  {
+    "op": "core/column-removal",
+    "description": "Remove column LANGUE",
+    "columnName": "LANGUE"
+  },
+  {
+    "op": "core/column-removal",
+    "description": "Remove column NOMBRE_UNITES_MATERIELLES",
+    "columnName": "NOMBRE_UNITES_MATERIELLES"
+  },
+  {
+    "op": "core/column-removal",
+    "description": "Remove column DATE_RELIURE",
+    "columnName": "DATE_RELIURE"
+  },
+  {
+    "op": "core/column-removal",
+    "description": "Remove column ETAT_RELIURE",
+    "columnName": "ETAT_RELIURE"
+  },
+  {
+    "op": "core/column-removal",
+    "description": "Remove column DESCRIPTION_RELIURE",
+    "columnName": "DESCRIPTION_RELIURE"
+  },
+  {
+    "op": "core/column-removal",
+    "description": "Remove column CONTENU_OUVRAGE",
+    "columnName": "CONTENU_OUVRAGE"
+  },
+  {
+    "op": "core/column-removal",
+    "description": "Remove column NOTE_SUR_LE_CONTENU",
+    "columnName": "NOTE_SUR_LE_CONTENU"
+  },
+  {
+    "op": "core/column-removal",
+    "description": "Remove column TITRE_COLLECTION_SERIE",
+    "columnName": "TITRE_COLLECTION_SERIE"
+  },
+  {
+    "op": "core/column-removal",
+    "description": "Remove column NUMERO_COLLECTION",
+    "columnName": "NUMERO_COLLECTION"
+  },
+  {
+    "op": "core/column-removal",
+    "description": "Remove column PRIX_DISTINCTION",
+    "columnName": "PRIX_DISTINCTION"
+  },
+  {
+    "op": "core/column-removal",
+    "description": "Remove column NUMERO_PIECE",
+    "columnName": "NUMERO_PIECE"
+  },
+  {
+    "op": "core/column-removal",
+    "description": "Remove column NOMBRE_PAGE",
+    "columnName": "NOMBRE_PAGE"
+  },
+  {
+    "op": "core/column-removal",
+    "description": "Remove column REIMPRESSION_FACSIMILE",
+    "columnName": "REIMPRESSION_FACSIMILE"
+  },
+  {
+    "op": "core/column-removal",
+    "description": "Remove column NOTE_SUR_EXEMPLAIRE",
+    "columnName": "NOTE_SUR_EXEMPLAIRE"
+  },
+  {
+    "op": "core/column-removal",
+    "description": "Remove column CATEGORIE_PROVISOIRE",
+    "columnName": "CATEGORIE_PROVISOIRE"
+  },
+  {
+    "op": "core/column-removal",
+    "description": "Remove column CATEGORIE",
+    "columnName": "CATEGORIE"
+  },
+  {
+    "op": "core/column-removal",
+    "description": "Remove column SENS_FORME_IMAGE",
+    "columnName": "SENS_FORME_IMAGE"
+  },
+  {
+    "op": "core/column-removal",
+    "description": "Remove column TYPE_PRISE_DE_VUE",
+    "columnName": "TYPE_PRISE_DE_VUE"
+  },
+  {
+    "op": "core/column-removal",
+    "description": "Remove column LUMIERE",
+    "columnName": "LUMIERE"
+  },
+  {
+    "op": "core/column-removal",
+    "description": "Remove column SENS_FORME_SUPPORT",
+    "columnName": "SENS_FORME_SUPPORT"
+  },
+  {
+    "op": "core/column-removal",
+    "description": "Remove column EPREUVAGE",
+    "columnName": "EPREUVAGE"
+  },
+  {
+    "op": "core/column-removal",
+    "description": "Remove column NUM_POCHETTE",
+    "columnName": "NUM_POCHETTE"
+  },
+  {
+    "op": "core/column-removal",
+    "description": "Remove column VALEUR_DE_PLAN",
+    "columnName": "VALEUR_DE_PLAN"
+  },
+  {
+    "op": "core/column-removal",
+    "description": "Remove column DROIT_DIFFUSION",
+    "columnName": "DROIT_DIFFUSION"
+  },
+  {
+    "op": "core/column-removal",
+    "description": "Remove column DROIT_REPRODUCTION",
+    "columnName": "DROIT_REPRODUCTION"
+  },
+  {
+    "op": "core/column-removal",
+    "description": "Remove column REPRODUCTION",
+    "columnName": "REPRODUCTION"
+  },
+  {
+    "op": "core/column-removal",
+    "description": "Remove column PRECISION_REPRODUCTION",
+    "columnName": "PRECISION_REPRODUCTION"
+  },
+  {
+    "op": "core/column-removal",
+    "description": "Remove column DOCUMENTS_ASSOCIES",
+    "columnName": "DOCUMENTS_ASSOCIES"
+  },
+  {
+    "op": "core/column-removal",
+    "description": "Remove column PRECISION_DOCUMENTS_ASSOCIES",
+    "columnName": "PRECISION_DOCUMENTS_ASSOCIES"
+  },
+  {
+    "op": "core/column-removal",
+    "description": "Remove column NOTICE_CATALOGUE_INHA",
+    "columnName": "NOTICE_CATALOGUE_INHA"
+  },
+  {
+    "op": "core/column-removal",
+    "description": "Remove column BIBLIOGRAPHIE",
+    "columnName": "BIBLIOGRAPHIE"
+  },
+  {
+    "op": "core/column-removal",
+    "description": "Remove column OUVRAGES_NUMERISES",
+    "columnName": "OUVRAGES_NUMERISES"
+  },
+  {
+    "op": "core/column-removal",
+    "description": "Remove column ARCHIVES",
+    "columnName": "ARCHIVES"
+  },
+  {
+    "op": "core/column-removal",
+    "description": "Remove column PRECISION_ARCHIVES",
+    "columnName": "PRECISION_ARCHIVES"
+  },
+  {
+    "op": "core/column-removal",
+    "description": "Remove column SOURCES_EN_LIGNE",
+    "columnName": "SOURCES_EN_LIGNE"
+  },
+  {
+    "op": "core/column-removal",
+    "description": "Remove column AUTRES_SOURCES",
+    "columnName": "AUTRES_SOURCES"
+  },
+  {
+    "op": "core/column-removal",
+    "description": "Remove column DOCUMENTATION_OEUVRE",
+    "columnName": "DOCUMENTATION_OEUVRE"
+  },
+  {
+    "op": "core/column-removal",
+    "description": "Remove column ENSEMBLE_PARTIE",
+    "columnName": "ENSEMBLE_PARTIE"
+  },
+  {
+    "op": "core/column-removal",
+    "description": "Remove column COPYRIGHT_NOTICE",
+    "columnName": "COPYRIGHT_NOTICE"
+  },
+  {
+    "op": "core/column-removal",
+    "description": "Remove column TABLE_DES_MATIERES",
+    "columnName": "TABLE_DES_MATIERES"
+  },
+  {
+    "op": "core/column-removal",
+    "description": "Remove column PROGRAMME",
+    "columnName": "PROGRAMME"
+  },
+  {
+    "op": "core/column-removal",
+    "description": "Remove column COMMENTAIRE_INTERNE",
+    "columnName": "COMMENTAIRE_INTERNE"
+  },
+  {
+    "op": "core/column-removal",
+    "description": "Remove column LIEN_A_CREER",
+    "columnName": "LIEN_A_CREER"
+  },
+  {
+    "op": "core/column-removal",
+    "description": "Remove column REDACTEUR",
+    "columnName": "REDACTEUR"
+  },
+  {
+    "op": "core/column-removal",
+    "description": "Remove column REFERENT",
+    "columnName": "REFERENT"
+  },
+  {
+    "op": "core/column-removal",
+    "description": "Remove column DATE_INSERTION",
+    "columnName": "DATE_INSERTION"
+  },
+  {
+    "op": "core/column-removal",
+    "description": "Remove column VOCABULAIRE_REJETE",
+    "columnName": "VOCABULAIRE_REJETE"
+  },
+  {
+    "op": "core/column-removal",
+    "description": "Remove column COPIE_DOUBLON",
+    "columnName": "COPIE_DOUBLON"
+  },
+  {
+    "op": "core/column-removal",
+    "description": "Remove column SAISIE_PAR",
+    "columnName": "SAISIE_PAR"
+  },
+  {
+    "op": "core/column-removal",
+    "description": "Remove column VISE_PAR",
+    "columnName": "VISE_PAR"
+  },
+  {
+    "op": "core/column-removal",
+    "description": "Remove column VISE_LE",
+    "columnName": "VISE_LE"
+  },
+  {
+    "op": "core/column-removal",
+    "description": "Remove column ETAT_MODIFIE_LE",
+    "columnName": "ETAT_MODIFIE_LE"
+  },
+  {
+    "op": "core/column-addition",
+    "description": "Create column URL_objet_AGORHA at index 1 based on column id_objet using expression grel:\"http://www.purl.org/inha/agorha/003/\" + value",
+    "engineConfig": {
+      "mode": "row-based",
+      "facets": []
+    },
+    "newColumnName": "URL_objet_AGORHA",
+    "columnInsertIndex": 1,
+    "baseColumnName": "id_objet",
+    "expression": "grel:\"http://www.purl.org/inha/agorha/003/\" + value",
+    "onError": "set-to-blank"
+  },
+  {
+    "op": "core/column-reorder",
+    "description": "Reorder columns",
+    "columnNames": [
+      "id_objet",
+      "auteur_objet",
+      "nom_objet",
+      "description",
+      "type_objet",
+      "matiere_filtre\nmatiere_filtre",
+      "LONGUEUR",
+      "LARGEUR",
+      "HAUTEUR",
+      "URL_objet_AGORHA",
+      "conservation_nom\nconservation_nom\nconservation_nom",
+      "DATE",
+      "LIEU_EXECUTION_LIEU",
+      "PROPRIETE",
+      "conservation_date_entree",
+      "PROVENANCE",
+      "PRECISIONS_PROVENANCE",
+      "EVENEMENTS",
+      "SITE_DECOUVERTE",
+      "DATE_DECOUVERTE",
+      "ETAT_AVANCEMENT_SAISIE"
+    ]
+  },
+  {
+    "op": "core/column-rename",
+    "description": "Rename column LIEU_EXECUTION_LIEU to lieu_creation_nom",
+    "oldColumnName": "LIEU_EXECUTION_LIEU",
+    "newColumnName": "lieu_creation_nom"
+  },
+  {
+    "op": "core/column-reorder",
+    "description": "Reorder columns",
+    "columnNames": [
+      "id_objet",
+      "auteur_objet",
+      "nom_objet",
+      "description",
+      "type_objet",
+      "matiere_filtre\nmatiere_filtre",
+      "LONGUEUR",
+      "LARGEUR",
+      "HAUTEUR",
+      "URL_objet_AGORHA",
+      "conservation_nom\nconservation_nom\nconservation_nom",
+      "DATE",
+      "lieu_creation_nom",
+      "conservation_date_entree",
+      "PROVENANCE",
+      "PRECISIONS_PROVENANCE",
+      "SITE_DECOUVERTE",
+      "ETAT_AVANCEMENT_SAISIE",
+      "DATE_DECOUVERTE",
+      "PROPRIETE",
+      "EVENEMENTS"
+    ]
+  },
+  {
+    "op": "core/column-reorder",
+    "description": "Reorder columns",
+    "columnNames": [
+      "id_objet",
+      "auteur_objet",
+      "nom_objet",
+      "description",
+      "type_objet",
+      "matiere_filtre\nmatiere_filtre",
+      "LONGUEUR",
+      "LARGEUR",
+      "HAUTEUR",
+      "conservation_nom\nconservation_nom\nconservation_nom",
+      "DATE",
+      "lieu_creation_nom",
+      "conservation_date_entree",
+      "PROVENANCE",
+      "PRECISIONS_PROVENANCE",
+      "SITE_DECOUVERTE",
+      "DATE_DECOUVERTE",
+      "URL_objet_AGORHA",
+      "ETAT_AVANCEMENT_SAISIE",
+      "PROPRIETE",
+      "EVENEMENTS"
+    ]
+  },
+  {
+    "op": "core/column-addition",
+    "description": "Create column classement_objet at index 4 based on column description using expression null",
+    "engineConfig": {
+      "mode": "row-based",
+      "facets": []
+    },
+    "newColumnName": "classement_objet",
+    "columnInsertIndex": 4,
+    "baseColumnName": "description",
+    "expression": "null",
+    "onError": "set-to-blank"
+  },
+  {
+    "op": "core/column-addition",
+    "description": "Create column categorie_picto at index 6 based on column type_objet using expression null",
+    "engineConfig": {
+      "mode": "row-based",
+      "facets": []
+    },
+    "newColumnName": "categorie_picto",
+    "columnInsertIndex": 6,
+    "baseColumnName": "type_objet",
+    "expression": "null",
+    "onError": "set-to-blank"
+  },
+  {
+    "op": "core/column-rename",
+    "description": "Rename column matiere_filtre\nmatiere_filtre to test",
+    "oldColumnName": "matiere_filtre\nmatiere_filtre",
+    "newColumnName": "test"
+  },
+  {
+    "op": "core/column-rename",
+    "description": "Rename column test to matiere_filtre",
+    "oldColumnName": "test",
+    "newColumnName": "matiere_filtre"
+  },
+  {
+    "op": "core/column-reorder",
+    "description": "Reorder columns",
+    "columnNames": [
+      "id_objet",
+      "auteur_objet",
+      "nom_objet",
+      "description",
+      "classement_objet",
+      "type_objet",
+      "categorie_picto",
+      "matiere_filtre",
+      "LONGUEUR",
+      "LARGEUR",
+      "HAUTEUR",
+      "conservation_nom\nconservation_nom\nconservation_nom",
+      "DATE",
+      "lieu_creation_nom",
+      "conservation_date_entree",
+      "PRECISIONS_PROVENANCE",
+      "SITE_DECOUVERTE",
+      "DATE_DECOUVERTE",
+      "URL_objet_AGORHA",
+      "ETAT_AVANCEMENT_SAISIE",
+      "PROPRIETE",
+      "PROVENANCE",
+      "EVENEMENTS"
+    ]
+  },
+  {
+    "op": "core/column-reorder",
+    "description": "Reorder columns",
+    "columnNames": [
+      "id_objet",
+      "auteur_objet",
+      "nom_objet",
+      "description",
+      "classement_objet",
+      "type_objet",
+      "categorie_picto",
+      "matiere_filtre",
+      "LONGUEUR",
+      "LARGEUR",
+      "HAUTEUR",
+      "lieu_creation_nom",
+      "DATE",
+      "PRECISIONS_PROVENANCE",
+      "SITE_DECOUVERTE",
+      "conservation_nom\nconservation_nom\nconservation_nom",
+      "DATE_DECOUVERTE",
+      "conservation_date_entree",
+      "URL_objet_AGORHA",
+      "ETAT_AVANCEMENT_SAISIE",
+      "PROPRIETE",
+      "PROVENANCE",
+      "EVENEMENTS"
+    ]
+  },
+  {
+    "op": "core/column-rename",
+    "description": "Rename column conservation_nom\nconservation_nom\nconservation_nom to test1",
+    "oldColumnName": "conservation_nom\nconservation_nom\nconservation_nom",
+    "newColumnName": "test1"
+  },
+  {
+    "op": "core/column-rename",
+    "description": "Rename column test1 to conservation_nom",
+    "oldColumnName": "test1",
+    "newColumnName": "conservation_nom"
+  },
+  {
+    "op": "core/column-reorder",
+    "description": "Reorder columns",
+    "columnNames": [
+      "id_objet",
+      "auteur_objet",
+      "nom_objet",
+      "description",
+      "classement_objet",
+      "type_objet",
+      "categorie_picto",
+      "matiere_filtre",
+      "LONGUEUR",
+      "LARGEUR",
+      "HAUTEUR",
+      "lieu_creation_nom",
+      "DATE",
+      "PRECISIONS_PROVENANCE",
+      "SITE_DECOUVERTE",
+      "DATE_DECOUVERTE",
+      "conservation_nom",
+      "conservation_date_entree",
+      "URL_objet_AGORHA",
+      "ETAT_AVANCEMENT_SAISIE",
+      "PROPRIETE",
+      "PROVENANCE",
+      "EVENEMENTS"
+    ]
+  },
+  {
+    "op": "core/column-rename",
+    "description": "Rename column SITE_DECOUVERTE to lieu_decouverte_nom",
+    "oldColumnName": "SITE_DECOUVERTE",
+    "newColumnName": "lieu_decouverte_nom"
+  },
+  {
+    "op": "core/column-reorder",
+    "description": "Reorder columns",
+    "columnNames": [
+      "id_objet",
+      "auteur_objet",
+      "nom_objet",
+      "description",
+      "classement_objet",
+      "type_objet",
+      "categorie_picto",
+      "matiere_filtre",
+      "LONGUEUR",
+      "LARGEUR",
+      "HAUTEUR",
+      "lieu_creation_nom",
+      "DATE",
+      "lieu_decouverte_nom",
+      "DATE_DECOUVERTE",
+      "conservation_nom",
+      "conservation_date_entree",
+      "URL_objet_AGORHA",
+      "ETAT_AVANCEMENT_SAISIE",
+      "PROPRIETE",
+      "PROVENANCE",
+      "PRECISIONS_PROVENANCE",
+      "EVENEMENTS"
+    ]
+  },
+  {
+    "op": "core/column-rename",
+    "description": "Rename column DATE_DECOUVERTE to data_decouverte_string\ndata_decouverte_string\ndata_decouverte_string",
+    "oldColumnName": "DATE_DECOUVERTE",
+    "newColumnName": "data_decouverte_string\ndata_decouverte_string\ndata_decouverte_string"
+  },
+  {
+    "op": "core/column-rename",
+    "description": "Rename column data_decouverte_string\ndata_decouverte_string\ndata_decouverte_string to test\ndata_decouverte_string\ndata_decouverte_string",
+    "oldColumnName": "data_decouverte_string\ndata_decouverte_string\ndata_decouverte_string",
+    "newColumnName": "test\ndata_decouverte_string\ndata_decouverte_string"
+  },
+  {
+    "op": "core/column-rename",
+    "description": "Rename column test\ndata_decouverte_string\ndata_decouverte_string to data_decouverte_string ",
+    "oldColumnName": "test\ndata_decouverte_string\ndata_decouverte_string",
+    "newColumnName": "data_decouverte_string "
+  },
+  {
+    "op": "core/column-rename",
+    "description": "Rename column DATE to date_creation_string",
+    "oldColumnName": "DATE",
+    "newColumnName": "date_creation_string"
+  },
+  {
+    "op": "core/column-addition",
+    "description": "Create column date_debut at index 13 based on column date_creation_string using expression grel:value.match(/.*(\\d{3})-(\\d{3}).*/)[0]",
+    "engineConfig": {
+      "mode": "row-based",
+      "facets": []
+    },
+    "newColumnName": "date_debut",
+    "columnInsertIndex": 13,
+    "baseColumnName": "date_creation_string",
+    "expression": "grel:value.match(/.*(\\d{3})-(\\d{3}).*/)[0]",
+    "onError": "set-to-blank"
+  },
+  {
+    "op": "core/column-addition",
+    "description": "Create column date_fin at index 13 based on column date_creation_string using expression grel:value.match(/.*(\\d{3}).*/)[0]",
+    "engineConfig": {
+      "mode": "row-based",
+      "facets": []
+    },
+    "newColumnName": "date_fin",
+    "columnInsertIndex": 13,
+    "baseColumnName": "date_creation_string",
+    "expression": "grel:value.match(/.*(\\d{3}).*/)[0]",
+    "onError": "set-to-blank"
+  },
+  {
+    "op": "core/column-rename",
+    "description": "Rename column date_debut to date_creation_debut",
+    "oldColumnName": "date_debut",
+    "newColumnName": "date_creation_debut"
+  },
+  {
+    "op": "core/column-rename",
+    "description": "Rename column date_fin to date_creation_fin",
+    "oldColumnName": "date_fin",
+    "newColumnName": "date_creation_fin"
+  },
+  {
+    "op": "core/column-split",
+    "description": "Split column date_creation_string by separator",
+    "engineConfig": {
+      "mode": "row-based",
+      "facets": []
+    },
+    "columnName": "date_creation_string",
+    "guessCellType": false,
+    "removeOriginalColumn": false,
+    "mode": "separator",
+    "separator": "/ ",
+    "regex": false,
+    "maxColumns": 0
+  },
+  {
+    "op": "core/column-removal",
+    "description": "Remove column date_creation_string 1",
+    "columnName": "date_creation_string 1"
+  },
+  {
+    "op": "core/column-removal",
+    "description": "Remove column date_creation_string 5",
+    "columnName": "date_creation_string 5"
+  },
+  {
+    "op": "core/column-removal",
+    "description": "Remove column date_creation_string",
+    "columnName": "date_creation_string"
+  },
+  {
+    "op": "core/column-rename",
+    "description": "Rename column date_creation_string 2 to date_creation_string",
+    "oldColumnName": "date_creation_string 2",
+    "newColumnName": "date_creation_string"
+  },
+  {
+    "op": "core/column-removal",
+    "description": "Remove column date_creation_string 3",
+    "columnName": "date_creation_string 3"
+  },
+  {
+    "op": "core/column-removal",
+    "description": "Remove column date_creation_string 4",
+    "columnName": "date_creation_string 4"
+  },
+  {
+    "op": "core/text-transform",
+    "description": "Text transform on cells in column date_creation_fin using expression grel:\"- \" + value",
+    "engineConfig": {
+      "mode": "row-based",
+      "facets": [
+        {
+          "omitError": false,
+          "expression": "isBlank(value)",
+          "selectBlank": false,
+          "invert": false,
+          "selectError": false,
+          "selection": [
+            {
+              "v": {
+                "v": false,
+                "l": "false"
+              }
+            }
+          ],
+          "name": "date_creation_string",
+          "omitBlank": false,
+          "type": "list",
+          "columnName": "date_creation_string"
+        },
+        {
+          "omitError": false,
+          "expression": "isBlank(value)",
+          "selectBlank": false,
+          "invert": false,
+          "selectError": false,
+          "selection": [
+            {
+              "v": {
+                "v": false,
+                "l": "false"
+              }
+            }
+          ],
+          "name": "date_creation_fin",
+          "omitBlank": false,
+          "type": "list",
+          "columnName": "date_creation_fin"
+        }
+      ]
+    },
+    "columnName": "date_creation_fin",
+    "expression": "grel:\"- \" + value",
+    "onError": "keep-original",
+    "repeat": false,
+    "repeatCount": 10
+  },
+  {
+    "op": "core/text-transform",
+    "description": "Text transform on cells in column date_creation_debut using expression grel:\"- \" + value",
+    "engineConfig": {
+      "mode": "row-based",
+      "facets": [
+        {
+          "omitError": false,
+          "expression": "isBlank(value)",
+          "selectBlank": false,
+          "invert": false,
+          "selectError": false,
+          "selection": [
+            {
+              "v": {
+                "v": false,
+                "l": "false"
+              }
+            }
+          ],
+          "name": "date_creation_string",
+          "omitBlank": false,
+          "type": "list",
+          "columnName": "date_creation_string"
+        },
+        {
+          "omitError": false,
+          "expression": "isBlank(value)",
+          "selectBlank": false,
+          "invert": false,
+          "selectError": false,
+          "selection": [
+            {
+              "v": {
+                "v": false,
+                "l": "false"
+              }
+            }
+          ],
+          "name": "date_creation_fin",
+          "omitBlank": false,
+          "type": "list",
+          "columnName": "date_creation_fin"
+        }
+      ]
+    },
+    "columnName": "date_creation_debut",
+    "expression": "grel:\"- \" + value",
+    "onError": "keep-original",
+    "repeat": false,
+    "repeatCount": 10
+  },
+  {
+    "op": "core/column-reorder",
+    "description": "Reorder columns",
+    "columnNames": [
+      "id_objet",
+      "auteur_objet",
+      "nom_objet",
+      "description",
+      "classement_objet",
+      "type_objet",
+      "categorie_picto",
+      "matiere_filtre",
+      "LONGUEUR",
+      "LARGEUR",
+      "HAUTEUR",
+      "lieu_creation_nom",
+      "date_creation_string",
+      "date_creation_debut",
+      "date_creation_fin",
+      "lieu_decouverte_nom",
+      "data_decouverte_string ",
+      "conservation_nom",
+      "conservation_date_entree",
+      "URL_objet_AGORHA",
+      "ETAT_AVANCEMENT_SAISIE",
+      "PROPRIETE",
+      "PROVENANCE",
+      "PRECISIONS_PROVENANCE",
+      "EVENEMENTS"
+    ]
+  },
+  {
+    "op": "core/column-rename",
+    "description": "Rename column data_decouverte_string  to date_decouverte_string ",
+    "oldColumnName": "data_decouverte_string ",
+    "newColumnName": "date_decouverte_string "
+  },
+  {
+    "op": "core/column-reorder",
+    "description": "Reorder columns",
+    "columnNames": [
+      "id_objet",
+      "auteur_objet",
+      "nom_objet",
+      "description",
+      "classement_objet",
+      "type_objet",
+      "categorie_picto",
+      "matiere_filtre",
+      "HAUTEUR",
+      "LARGEUR",
+      "LONGUEUR",
+      "lieu_creation_nom",
+      "date_creation_string",
+      "date_creation_debut",
+      "date_creation_fin",
+      "lieu_decouverte_nom",
+      "date_decouverte_string ",
+      "conservation_nom",
+      "conservation_date_entree",
+      "URL_objet_AGORHA",
+      "ETAT_AVANCEMENT_SAISIE",
+      "PROPRIETE",
+      "PROVENANCE",
+      "PRECISIONS_PROVENANCE",
+      "EVENEMENTS"
+    ]
+  },
+  {
+    "op": "core/text-transform",
+    "description": "Text transform on cells in column HAUTEUR using expression grel:value.replace(\"#\",\"\")",
+    "engineConfig": {
+      "mode": "row-based",
+      "facets": [
+        {
+          "omitError": false,
+          "expression": "isBlank(value)",
+          "selectBlank": false,
+          "invert": false,
+          "selectError": false,
+          "selection": [
+            {
+              "v": {
+                "v": false,
+                "l": "false"
+              }
+            }
+          ],
+          "name": "HAUTEUR",
+          "omitBlank": false,
+          "type": "list",
+          "columnName": "HAUTEUR"
+        }
+      ]
+    },
+    "columnName": "HAUTEUR",
+    "expression": "grel:value.replace(\"#\",\"\")",
+    "onError": "keep-original",
+    "repeat": false,
+    "repeatCount": 10
+  },
+  {
+    "op": "core/text-transform",
+    "description": "Text transform on cells in column LARGEUR using expression grel:value.replace(\"#\",\"\")",
+    "engineConfig": {
+      "mode": "row-based",
+      "facets": [
+        {
+          "omitError": false,
+          "expression": "isBlank(value)",
+          "selectBlank": false,
+          "invert": false,
+          "selectError": false,
+          "selection": [
+            {
+              "v": {
+                "v": false,
+                "l": "false"
+              }
+            }
+          ],
+          "name": "HAUTEUR",
+          "omitBlank": false,
+          "type": "list",
+          "columnName": "HAUTEUR"
+        }
+      ]
+    },
+    "columnName": "LARGEUR",
+    "expression": "grel:value.replace(\"#\",\"\")",
+    "onError": "keep-original",
+    "repeat": false,
+    "repeatCount": 10
+  },
+  {
+    "op": "core/text-transform",
+    "description": "Text transform on cells in column type_objet using expression value.trim()",
+    "engineConfig": {
+      "mode": "row-based",
+      "facets": []
+    },
+    "columnName": "type_objet",
+    "expression": "value.trim()",
+    "onError": "keep-original",
+    "repeat": false,
+    "repeatCount": 10
+  },
+  {
+    "op": "core/column-removal",
+    "description": "Remove column categorie_picto",
+    "columnName": "categorie_picto"
+  },
+  {
+    "op": "core/text-transform",
+    "description": "Text transform on cells in column type_objet using expression value.replace(/\\s+/,' ')",
+    "engineConfig": {
+      "mode": "row-based",
+      "facets": []
+    },
+    "columnName": "type_objet",
+    "expression": "value.replace(/\\s+/,' ')",
+    "onError": "keep-original",
+    "repeat": false,
+    "repeatCount": 10
+  },
+  {
+    "op": "core/column-addition",
+    "description": "Create column test at index 6 based on column type_objet using expression grel:cell.cross(\"type_objet\", \"type_agorha\")[0].cells[\"type\"].value",
+    "engineConfig": {
+      "mode": "row-based",
+      "facets": []
+    },
+    "newColumnName": "test",
+    "columnInsertIndex": 6,
+    "baseColumnName": "type_objet",
+    "expression": "grel:cell.cross(\"type_objet\", \"type_agorha\")[0].cells[\"type\"].value",
+    "onError": "set-to-blank"
+  },
+  {
+    "op": "core/column-rename",
+    "description": "Rename column test to categorie_picto",
+    "oldColumnName": "test",
+    "newColumnName": "categorie_picto"
+  },
+  {
+    "op": "core/column-addition",
+    "description": "Create column echelle_cm at index 9 based on column HAUTEUR using expression grel:value",
+    "engineConfig": {
+      "mode": "row-based",
+      "facets": [
+        {
+          "omitError": false,
+          "expression": "isBlank(value)",
+          "selectBlank": false,
+          "invert": false,
+          "selectError": false,
+          "selection": [
+            {
+              "v": {
+                "v": false,
+                "l": "false"
+              }
+            }
+          ],
+          "name": "HAUTEUR",
+          "omitBlank": false,
+          "type": "list",
+          "columnName": "HAUTEUR"
+        }
+      ]
+    },
+    "newColumnName": "echelle_cm",
+    "columnInsertIndex": 9,
+    "baseColumnName": "HAUTEUR",
+    "expression": "grel:value",
+    "onError": "set-to-blank"
+  },
+  {
+    "op": "core/text-transform",
+    "description": "Text transform on cells in column LARGEUR using expression grel:value.replace(\"#\",\"\")",
+    "engineConfig": {
+      "mode": "row-based",
+      "facets": [
+        {
+          "omitError": false,
+          "expression": "isBlank(value)",
+          "selectBlank": false,
+          "invert": false,
+          "selectError": false,
+          "selection": [
+            {
+              "v": {
+                "v": false,
+                "l": "false"
+              }
+            }
+          ],
+          "name": "LARGEUR",
+          "omitBlank": false,
+          "type": "list",
+          "columnName": "LARGEUR"
+        }
+      ]
+    },
+    "columnName": "LARGEUR",
+    "expression": "grel:value.replace(\"#\",\"\")",
+    "onError": "keep-original",
+    "repeat": false,
+    "repeatCount": 10
+  },
+  {
+    "op": "core/text-transform",
+    "description": "Text transform on cells in column LONGUEUR using expression grel:value.replace(\"#\",\"\")",
+    "engineConfig": {
+      "mode": "row-based",
+      "facets": [
+        {
+          "omitError": false,
+          "expression": "isBlank(value)",
+          "selectBlank": false,
+          "invert": false,
+          "selectError": false,
+          "selection": [
+            {
+              "v": {
+                "v": false,
+                "l": "false"
+              }
+            }
+          ],
+          "name": "LONGUEUR",
+          "omitBlank": false,
+          "type": "list",
+          "columnName": "LONGUEUR"
+        }
+      ]
+    },
+    "columnName": "LONGUEUR",
+    "expression": "grel:value.replace(\"#\",\"\")",
+    "onError": "keep-original",
+    "repeat": false,
+    "repeatCount": 10
+  },
+  {
+    "op": "core/column-rename",
+    "description": "Rename column HAUTEUR to dim_cm\ndim_cm",
+    "oldColumnName": "HAUTEUR",
+    "newColumnName": "dim_cm\ndim_cm"
+  },
+  {
+    "op": "core/column-rename",
+    "description": "Rename column dim_cm\ndim_cm to dim_cm",
+    "oldColumnName": "dim_cm\ndim_cm",
+    "newColumnName": "dim_cm"
+  },
+  {
+    "op": "core/column-addition",
+    "description": "Create column test at index 9 based on column dim_cm using expression grel:value + \"x\" + cells[\"LARGEUR\"].value",
+    "engineConfig": {
+      "mode": "row-based",
+      "facets": []
+    },
+    "newColumnName": "test",
+    "columnInsertIndex": 9,
+    "baseColumnName": "dim_cm",
+    "expression": "grel:value + \"x\" + cells[\"LARGEUR\"].value",
+    "onError": "set-to-blank"
+  },
+  {
+    "op": "core/column-removal",
+    "description": "Remove column test",
+    "columnName": "test"
+  },
+  {
+    "op": "core/text-transform",
+    "description": "Text transform on cells in column dim_cm using expression grel:value + \"x \" + cells[\"LARGEUR\"].value",
+    "engineConfig": {
+      "mode": "row-based",
+      "facets": [
+        {
+          "omitError": false,
+          "expression": "isBlank(value)",
+          "selectBlank": false,
+          "invert": false,
+          "selectError": false,
+          "selection": [
+            {
+              "v": {
+                "v": false,
+                "l": "false"
+              }
+            }
+          ],
+          "name": "LARGEUR",
+          "omitBlank": false,
+          "type": "list",
+          "columnName": "LARGEUR"
+        },
+        {
+          "omitError": false,
+          "expression": "isBlank(value)",
+          "selectBlank": false,
+          "invert": false,
+          "selectError": false,
+          "selection": [
+            {
+              "v": {
+                "v": false,
+                "l": "false"
+              }
+            }
+          ],
+          "name": "dim_cm",
+          "omitBlank": false,
+          "type": "list",
+          "columnName": "dim_cm"
+        }
+      ]
+    },
+    "columnName": "dim_cm",
+    "expression": "grel:value + \"x \" + cells[\"LARGEUR\"].value",
+    "onError": "keep-original",
+    "repeat": false,
+    "repeatCount": 10
+  },
+  {
+    "op": "core/column-removal",
+    "description": "Remove column LARGEUR",
+    "columnName": "LARGEUR"
+  },
+  {
+    "op": "core/column-removal",
+    "description": "Remove column LONGUEUR",
+    "columnName": "LONGUEUR"
+  },
+  {
+    "op": "core/column-addition",
+    "description": "Create column lat_long at index 11 based on column lieu_creation_nom using expression grel:cell.cross(\"lieux_creation\", \"lieu_creation_nom\")[0].cells[\"lat_long\"].value",
+    "engineConfig": {
+      "mode": "row-based",
+      "facets": []
+    },
+    "newColumnName": "lat_long",
+    "columnInsertIndex": 11,
+    "baseColumnName": "lieu_creation_nom",
+    "expression": "grel:cell.cross(\"lieux_creation\", \"lieu_creation_nom\")[0].cells[\"lat_long\"].value",
+    "onError": "set-to-blank"
+  },
+  {
+    "op": "core/column-split",
+    "description": "Split column lat_long by separator",
+    "engineConfig": {
+      "mode": "row-based",
+      "facets": [
+        {
+          "omitError": false,
+          "expression": "isBlank(value)",
+          "selectBlank": false,
+          "invert": false,
+          "selectError": false,
+          "selection": [
+            {
+              "v": {
+                "v": false,
+                "l": "false"
+              }
+            }
+          ],
+          "name": "lieu_creation_nom",
+          "omitBlank": false,
+          "type": "list",
+          "columnName": "lieu_creation_nom"
+        }
+      ]
+    },
+    "columnName": "lat_long",
+    "guessCellType": true,
+    "removeOriginalColumn": true,
+    "mode": "separator",
+    "separator": ",",
+    "regex": false,
+    "maxColumns": 0
+  },
+  {
+    "op": "core/column-rename",
+    "description": "Rename column lat_long 1 to lieu_creation_lat",
+    "oldColumnName": "lat_long 1",
+    "newColumnName": "lieu_creation_lat"
+  },
+  {
+    "op": "core/column-rename",
+    "description": "Rename column lat_long 2 to lieu_creation_long",
+    "oldColumnName": "lat_long 2",
+    "newColumnName": "lieu_creation_long"
+  },
+  {
+    "op": "core/column-addition",
+    "description": "Create column lieu_creation_pays at index 11 based on column lieu_creation_nom using expression grel:cell.cross(\"lieux_creation\", \"lieu_creation_nom\")[0].cells[\"lieu_creation_pays\"].value",
+    "engineConfig": {
+      "mode": "row-based",
+      "facets": [
+        {
+          "omitError": false,
+          "expression": "isBlank(value)",
+          "selectBlank": false,
+          "invert": false,
+          "selectError": false,
+          "selection": [
+            {
+              "v": {
+                "v": false,
+                "l": "false"
+              }
+            }
+          ],
+          "name": "lieu_creation_nom",
+          "omitBlank": false,
+          "type": "list",
+          "columnName": "lieu_creation_nom"
+        }
+      ]
+    },
+    "newColumnName": "lieu_creation_pays",
+    "columnInsertIndex": 11,
+    "baseColumnName": "lieu_creation_nom",
+    "expression": "grel:cell.cross(\"lieux_creation\", \"lieu_creation_nom\")[0].cells[\"lieu_creation_pays\"].value",
+    "onError": "set-to-blank"
+  },
+  {
+    "op": "core/column-addition",
+    "description": "Create column lieu_creation_type at index 11 based on column lieu_creation_nom using expression grel:cell.cross(\"lieux_creation\", \"lieu_creation_nom\")[0].cells[\"lieu_creation_type\"].value",
+    "engineConfig": {
+      "mode": "row-based",
+      "facets": [
+        {
+          "omitError": false,
+          "expression": "isBlank(value)",
+          "selectBlank": false,
+          "invert": false,
+          "selectError": false,
+          "selection": [
+            {
+              "v": {
+                "v": false,
+                "l": "false"
+              }
+            }
+          ],
+          "name": "lieu_creation_nom",
+          "omitBlank": false,
+          "type": "list",
+          "columnName": "lieu_creation_nom"
+        }
+      ]
+    },
+    "newColumnName": "lieu_creation_type",
+    "columnInsertIndex": 11,
+    "baseColumnName": "lieu_creation_nom",
+    "expression": "grel:cell.cross(\"lieux_creation\", \"lieu_creation_nom\")[0].cells[\"lieu_creation_type\"].value",
+    "onError": "set-to-blank"
+  },
+  {
+    "op": "core/column-addition",
+    "description": "Create column lieu_decouverte_type at index 19 based on column lieu_decouverte_nom using expression grel:cell.cross(\"lieux_decouverte\", \"lieu_decouverte_nom\")[0].cells[\"lieu_decouverte_type\"].value",
+    "engineConfig": {
+      "mode": "row-based",
+      "facets": [
+        {
+          "omitError": false,
+          "expression": "isBlank(value)",
+          "selectBlank": false,
+          "invert": false,
+          "selectError": false,
+          "selection": [
+            {
+              "v": {
+                "v": false,
+                "l": "false"
+              }
+            }
+          ],
+          "name": "lieu_decouverte_nom",
+          "omitBlank": false,
+          "type": "list",
+          "columnName": "lieu_decouverte_nom"
+        }
+      ]
+    },
+    "newColumnName": "lieu_decouverte_type",
+    "columnInsertIndex": 19,
+    "baseColumnName": "lieu_decouverte_nom",
+    "expression": "grel:cell.cross(\"lieux_decouverte\", \"lieu_decouverte_nom\")[0].cells[\"lieu_decouverte_type\"].value",
+    "onError": "set-to-blank"
+  },
+  {
+    "op": "core/column-addition",
+    "description": "Create column lat_long at index 19 based on column lieu_decouverte_nom using expression grel:cell.cross(\"lieux_decouverte\", \"lieu_decouverte_nom\")[0].cells[\"lat_long\"].value",
+    "engineConfig": {
+      "mode": "row-based",
+      "facets": [
+        {
+          "omitError": false,
+          "expression": "isBlank(value)",
+          "selectBlank": false,
+          "invert": false,
+          "selectError": false,
+          "selection": [
+            {
+              "v": {
+                "v": false,
+                "l": "false"
+              }
+            }
+          ],
+          "name": "lieu_decouverte_nom",
+          "omitBlank": false,
+          "type": "list",
+          "columnName": "lieu_decouverte_nom"
+        }
+      ]
+    },
+    "newColumnName": "lat_long",
+    "columnInsertIndex": 19,
+    "baseColumnName": "lieu_decouverte_nom",
+    "expression": "grel:cell.cross(\"lieux_decouverte\", \"lieu_decouverte_nom\")[0].cells[\"lat_long\"].value",
+    "onError": "set-to-blank"
+  },
+  {
+    "op": "core/column-split",
+    "description": "Split column lat_long by separator",
+    "engineConfig": {
+      "mode": "row-based",
+      "facets": [
+        {
+          "omitError": false,
+          "expression": "isBlank(value)",
+          "selectBlank": false,
+          "invert": false,
+          "selectError": false,
+          "selection": [
+            {
+              "v": {
+                "v": false,
+                "l": "false"
+              }
+            }
+          ],
+          "name": "lieu_decouverte_nom",
+          "omitBlank": false,
+          "type": "list",
+          "columnName": "lieu_decouverte_nom"
+        }
+      ]
+    },
+    "columnName": "lat_long",
+    "guessCellType": true,
+    "removeOriginalColumn": true,
+    "mode": "separator",
+    "separator": ",",
+    "regex": false,
+    "maxColumns": 0
+  },
+  {
+    "op": "core/column-rename",
+    "description": "Rename column lat_long 1 to lieu_decouverte_lat",
+    "oldColumnName": "lat_long 1",
+    "newColumnName": "lieu_decouverte_lat"
+  },
+  {
+    "op": "core/column-rename",
+    "description": "Rename column lat_long 2 to lieu_decouverte_long",
+    "oldColumnName": "lat_long 2",
+    "newColumnName": "lieu_decouverte_long"
+  },
+  {
+    "op": "core/column-addition",
+    "description": "Create column lieu_decouverte_pays at index 19 based on column lieu_decouverte_nom using expression grel:cell.cross(\"lieux_decouverte\", \"lieu_decouverte_nom\")[0].cells[\"lieu_decouverte_pays\"].value",
+    "engineConfig": {
+      "mode": "row-based",
+      "facets": [
+        {
+          "omitError": false,
+          "expression": "isBlank(value)",
+          "selectBlank": false,
+          "invert": false,
+          "selectError": false,
+          "selection": [
+            {
+              "v": {
+                "v": false,
+                "l": "false"
+              }
+            }
+          ],
+          "name": "lieu_decouverte_nom",
+          "omitBlank": false,
+          "type": "list",
+          "columnName": "lieu_decouverte_nom"
+        }
+      ]
+    },
+    "newColumnName": "lieu_decouverte_pays",
+    "columnInsertIndex": 19,
+    "baseColumnName": "lieu_decouverte_nom",
+    "expression": "grel:cell.cross(\"lieux_decouverte\", \"lieu_decouverte_nom\")[0].cells[\"lieu_decouverte_pays\"].value",
+    "onError": "set-to-blank"
+  },
+  {
+    "op": "core/text-transform",
+    "description": "Text transform on cells in column lieu_decouverte_nom using expression grel:value.replace(\" ;\",\"\")",
+    "engineConfig": {
+      "mode": "row-based",
+      "facets": [
+        {
+          "omitError": false,
+          "expression": "isBlank(value)",
+          "selectBlank": false,
+          "invert": false,
+          "selectError": false,
+          "selection": [
+            {
+              "v": {
+                "v": false,
+                "l": "false"
+              }
+            }
+          ],
+          "name": "lieu_decouverte_nom",
+          "omitBlank": false,
+          "type": "list",
+          "columnName": "lieu_decouverte_nom"
+        }
+      ]
+    },
+    "columnName": "lieu_decouverte_nom",
+    "expression": "grel:value.replace(\" ;\",\"\")",
+    "onError": "keep-original",
+    "repeat": false,
+    "repeatCount": 10
+  },
+  {
+    "op": "core/text-transform",
+    "description": "Text transform on cells in column lieu_creation_nom using expression grel:value.replace(\" ;\",\"\")",
+    "engineConfig": {
+      "mode": "row-based",
+      "facets": [
+        {
+          "omitError": false,
+          "expression": "isBlank(value)",
+          "selectBlank": false,
+          "invert": false,
+          "selectError": false,
+          "selection": [
+            {
+              "v": {
+                "v": false,
+                "l": "false"
+              }
+            }
+          ],
+          "name": "lieu_decouverte_nom",
+          "omitBlank": false,
+          "type": "list",
+          "columnName": "lieu_decouverte_nom"
+        }
+      ]
+    },
+    "columnName": "lieu_creation_nom",
+    "expression": "grel:value.replace(\" ;\",\"\")",
+    "onError": "keep-original",
+    "repeat": false,
+    "repeatCount": 10
+  },
+  {
+    "op": "core/column-addition",
+    "description": "Create column lat_long at index 25 based on column conservation_nom using expression grel:cell.cross(\"lieux_conservation\", \"conservation_nom_source\")[0].cells[\"lat_long\"].value",
+    "engineConfig": {
+      "mode": "row-based",
+      "facets": [
+        {
+          "omitError": false,
+          "expression": "isBlank(value)",
+          "selectBlank": false,
+          "invert": false,
+          "selectError": false,
+          "selection": [
+            {
+              "v": {
+                "v": false,
+                "l": "false"
+              }
+            }
+          ],
+          "name": "conservation_nom",
+          "omitBlank": false,
+          "type": "list",
+          "columnName": "conservation_nom"
+        }
+      ]
+    },
+    "newColumnName": "lat_long",
+    "columnInsertIndex": 25,
+    "baseColumnName": "conservation_nom",
+    "expression": "grel:cell.cross(\"lieux_conservation\", \"conservation_nom_source\")[0].cells[\"lat_long\"].value",
+    "onError": "set-to-blank"
+  },
+  {
+    "op": "core/column-split",
+    "description": "Split column lat_long by separator",
+    "engineConfig": {
+      "mode": "row-based",
+      "facets": [
+        {
+          "omitError": false,
+          "expression": "isBlank(value)",
+          "selectBlank": false,
+          "invert": false,
+          "selectError": false,
+          "selection": [
+            {
+              "v": {
+                "v": false,
+                "l": "false"
+              }
+            }
+          ],
+          "name": "conservation_nom",
+          "omitBlank": false,
+          "type": "list",
+          "columnName": "conservation_nom"
+        }
+      ]
+    },
+    "columnName": "lat_long",
+    "guessCellType": true,
+    "removeOriginalColumn": true,
+    "mode": "separator",
+    "separator": ",",
+    "regex": false,
+    "maxColumns": 0
+  },
+  {
+    "op": "core/column-rename",
+    "description": "Rename column lat_long 1 to conservation_lat",
+    "oldColumnName": "lat_long 1",
+    "newColumnName": "conservation_lat"
+  },
+  {
+    "op": "core/column-rename",
+    "description": "Rename column lat_long 2 to conservation_long",
+    "oldColumnName": "lat_long 2",
+    "newColumnName": "conservation_long"
+  },
+  {
+    "op": "core/column-addition",
+    "description": "Create column conservation_nom_2 at index 25 based on column conservation_nom using expression grel:cell.cross(\"lieux_conservation\", \"conservation_nom_source\")[0].cells[\"conservation_nom\"].value",
+    "engineConfig": {
+      "mode": "row-based",
+      "facets": [
+        {
+          "omitError": false,
+          "expression": "isBlank(value)",
+          "selectBlank": false,
+          "invert": false,
+          "selectError": false,
+          "selection": [
+            {
+              "v": {
+                "v": false,
+                "l": "false"
+              }
+            }
+          ],
+          "name": "conservation_nom",
+          "omitBlank": false,
+          "type": "list",
+          "columnName": "conservation_nom"
+        }
+      ]
+    },
+    "newColumnName": "conservation_nom_2",
+    "columnInsertIndex": 25,
+    "baseColumnName": "conservation_nom",
+    "expression": "grel:cell.cross(\"lieux_conservation\", \"conservation_nom_source\")[0].cells[\"conservation_nom\"].value",
+    "onError": "set-to-blank"
+  },
+  {
+    "op": "core/column-addition",
+    "description": "Create column conservation_ville at index 25 based on column conservation_nom using expression grel:cell.cross(\"lieux_conservation\", \"conservation_nom_source\")[0].cells[\"conservation_ville\"].value",
+    "engineConfig": {
+      "mode": "row-based",
+      "facets": [
+        {
+          "omitError": false,
+          "expression": "isBlank(value)",
+          "selectBlank": false,
+          "invert": false,
+          "selectError": false,
+          "selection": [
+            {
+              "v": {
+                "v": false,
+                "l": "false"
+              }
+            }
+          ],
+          "name": "conservation_nom",
+          "omitBlank": false,
+          "type": "list",
+          "columnName": "conservation_nom"
+        }
+      ]
+    },
+    "newColumnName": "conservation_ville",
+    "columnInsertIndex": 25,
+    "baseColumnName": "conservation_nom",
+    "expression": "grel:cell.cross(\"lieux_conservation\", \"conservation_nom_source\")[0].cells[\"conservation_ville\"].value",
+    "onError": "set-to-blank"
+  },
+  {
+    "op": "core/column-addition",
+    "description": "Create column conservation_pays at index 25 based on column conservation_nom using expression grel:cell.cross(\"lieux_conservation\", \"conservation_nom_source\")[0].cells[\"conservation_pays\"].value",
+    "engineConfig": {
+      "mode": "row-based",
+      "facets": [
+        {
+          "omitError": false,
+          "expression": "isBlank(value)",
+          "selectBlank": false,
+          "invert": false,
+          "selectError": false,
+          "selection": [
+            {
+              "v": {
+                "v": false,
+                "l": "false"
+              }
+            }
+          ],
+          "name": "conservation_nom",
+          "omitBlank": false,
+          "type": "list",
+          "columnName": "conservation_nom"
+        }
+      ]
+    },
+    "newColumnName": "conservation_pays",
+    "columnInsertIndex": 25,
+    "baseColumnName": "conservation_nom",
+    "expression": "grel:cell.cross(\"lieux_conservation\", \"conservation_nom_source\")[0].cells[\"conservation_pays\"].value",
+    "onError": "set-to-blank"
+  },
+  {
+    "op": "core/column-addition",
+    "description": "Create column conservation_type at index 25 based on column conservation_nom using expression grel:cell.cross(\"lieux_conservation\", \"conservation_nom_source\")[0].cells[\"conservation_type\"].value",
+    "engineConfig": {
+      "mode": "row-based",
+      "facets": [
+        {
+          "omitError": false,
+          "expression": "isBlank(value)",
+          "selectBlank": false,
+          "invert": false,
+          "selectError": false,
+          "selection": [
+            {
+              "v": {
+                "v": false,
+                "l": "false"
+              }
+            }
+          ],
+          "name": "conservation_nom",
+          "omitBlank": false,
+          "type": "list",
+          "columnName": "conservation_nom"
+        }
+      ]
+    },
+    "newColumnName": "conservation_type",
+    "columnInsertIndex": 25,
+    "baseColumnName": "conservation_nom",
+    "expression": "grel:cell.cross(\"lieux_conservation\", \"conservation_nom_source\")[0].cells[\"conservation_type\"].value",
+    "onError": "set-to-blank"
+  },
+  {
+    "op": "core/column-reorder",
+    "description": "Reorder columns",
+    "columnNames": [
+      "id_objet",
+      "auteur_objet",
+      "nom_objet",
+      "description",
+      "classement_objet",
+      "type_objet",
+      "categorie_picto",
+      "matiere_filtre",
+      "dim_cm",
+      "echelle_cm",
+      "lieu_creation_nom",
+      "lieu_creation_pays",
+      "lieu_creation_lat",
+      "lieu_creation_long",
+      "lieu_creation_type",
+      "date_creation_string",
+      "date_creation_debut",
+      "date_creation_fin",
+      "lieu_decouverte_nom",
+      "lieu_decouverte_lat",
+      "lieu_decouverte_long",
+      "lieu_decouverte_pays",
+      "lieu_decouverte_type",
+      "date_decouverte_string ",
+      "conservation_nom",
+      "conservation_date_entree",
+      "conservation_ville",
+      "conservation_pays",
+      "conservation_type",
+      "conservation_nom_2",
+      "conservation_lat",
+      "conservation_long",
+      "URL_objet_AGORHA",
+      "ETAT_AVANCEMENT_SAISIE",
+      "PROPRIETE",
+      "PROVENANCE",
+      "PRECISIONS_PROVENANCE",
+      "EVENEMENTS"
+    ]
+  },
+  {
+    "op": "core/column-reorder",
+    "description": "Reorder columns",
+    "columnNames": [
+      "id_objet",
+      "auteur_objet",
+      "nom_objet",
+      "description",
+      "classement_objet",
+      "type_objet",
+      "categorie_picto",
+      "matiere_filtre",
+      "dim_cm",
+      "echelle_cm",
+      "lieu_creation_nom",
+      "lieu_creation_pays",
+      "lieu_creation_lat",
+      "lieu_creation_long",
+      "lieu_creation_type",
+      "date_creation_string",
+      "date_creation_debut",
+      "date_creation_fin",
+      "lieu_decouverte_nom",
+      "lieu_decouverte_lat",
+      "lieu_decouverte_long",
+      "lieu_decouverte_pays",
+      "lieu_decouverte_type",
+      "date_decouverte_string ",
+      "conservation_nom",
+      "conservation_date_entree",
+      "conservation_ville",
+      "conservation_pays",
+      "conservation_nom_2",
+      "conservation_lat",
+      "conservation_long",
+      "conservation_type",
+      "URL_objet_AGORHA",
+      "ETAT_AVANCEMENT_SAISIE",
+      "PROPRIETE",
+      "PROVENANCE",
+      "PRECISIONS_PROVENANCE",
+      "EVENEMENTS"
+    ]
+  },
+  {
+    "op": "core/column-addition",
+    "description": "Create column date_decouverte_debut at index 24 based on column date_decouverte_string  using expression grel:value.match(/.*(\\d{4}).*/)[0]",
+    "engineConfig": {
+      "mode": "row-based",
+      "facets": [
+        {
+          "omitError": false,
+          "expression": "isBlank(value)",
+          "selectBlank": false,
+          "invert": false,
+          "selectError": false,
+          "selection": [
+            {
+              "v": {
+                "v": false,
+                "l": "false"
+              }
+            }
+          ],
+          "name": "date_decouverte_string ",
+          "omitBlank": false,
+          "type": "list",
+          "columnName": "date_decouverte_string "
+        }
+      ]
+    },
+    "newColumnName": "date_decouverte_debut",
+    "columnInsertIndex": 24,
+    "baseColumnName": "date_decouverte_string ",
+    "expression": "grel:value.match(/.*(\\d{4}).*/)[0]",
+    "onError": "set-to-blank"
+  },
+  {
+    "op": "core/column-addition",
+    "description": "Create column date_decouverte_fin at index 24 based on column date_decouverte_string  using expression grel:value.match(/.*(\\d{4}).*/)[0]",
+    "engineConfig": {
+      "mode": "row-based",
+      "facets": [
+        {
+          "omitError": false,
+          "expression": "isBlank(value)",
+          "selectBlank": false,
+          "invert": false,
+          "selectError": false,
+          "selection": [
+            {
+              "v": {
+                "v": false,
+                "l": "false"
+              }
+            }
+          ],
+          "name": "date_decouverte_string ",
+          "omitBlank": false,
+          "type": "list",
+          "columnName": "date_decouverte_string "
+        }
+      ]
+    },
+    "newColumnName": "date_decouverte_fin",
+    "columnInsertIndex": 24,
+    "baseColumnName": "date_decouverte_string ",
+    "expression": "grel:value.match(/.*(\\d{4}).*/)[0]",
+    "onError": "set-to-blank"
+  },
+  {
+    "op": "core/column-removal",
+    "description": "Remove column conservation_nom",
+    "columnName": "conservation_nom"
+  },
+  {
+    "op": "core/column-rename",
+    "description": "Rename column conservation_nom_2 to conservation_nom",
+    "oldColumnName": "conservation_nom_2",
+    "newColumnName": "conservation_nom"
+  },
+  {
+    "op": "core/column-reorder",
+    "description": "Reorder columns",
+    "columnNames": [
+      "id_objet",
+      "auteur_objet",
+      "nom_objet",
+      "description",
+      "classement_objet",
+      "type_objet",
+      "categorie_picto",
+      "matiere_filtre",
+      "dim_cm",
+      "echelle_cm",
+      "lieu_creation_nom",
+      "lieu_creation_pays",
+      "lieu_creation_lat",
+      "lieu_creation_long",
+      "lieu_creation_type",
+      "date_creation_string",
+      "date_creation_debut",
+      "date_creation_fin",
+      "lieu_decouverte_nom",
+      "lieu_decouverte_lat",
+      "lieu_decouverte_long",
+      "lieu_decouverte_pays",
+      "lieu_decouverte_type",
+      "date_decouverte_string ",
+      "date_decouverte_fin",
+      "date_decouverte_debut",
+      "conservation_nom",
+      "conservation_date_entree",
+      "conservation_ville",
+      "conservation_pays",
+      "conservation_lat",
+      "conservation_long",
+      "conservation_type",
+      "URL_objet_AGORHA",
+      "ETAT_AVANCEMENT_SAISIE",
+      "PROPRIETE",
+      "PROVENANCE",
+      "PRECISIONS_PROVENANCE",
+      "EVENEMENTS"
+    ]
+  },
+  {
+    "op": "core/column-addition",
+    "description": "Create column conservation_id at index 27 based on column conservation_nom using expression null",
+    "engineConfig": {
+      "mode": "row-based",
+      "facets": [
+        {
+          "omitError": false,
+          "expression": "isBlank(value)",
+          "selectBlank": false,
+          "invert": false,
+          "selectError": false,
+          "selection": [
+            {
+              "v": {
+                "v": false,
+                "l": "false"
+              }
+            }
+          ],
+          "name": "date_decouverte_string ",
+          "omitBlank": false,
+          "type": "list",
+          "columnName": "date_decouverte_string "
+        }
+      ]
+    },
+    "newColumnName": "conservation_id",
+    "columnInsertIndex": 27,
+    "baseColumnName": "conservation_nom",
+    "expression": "null",
+    "onError": "set-to-blank"
+  },
+  {
+    "op": "core/column-removal",
+    "description": "Remove column PROPRIETE",
+    "columnName": "PROPRIETE"
+  },
+  {
+    "op": "core/column-removal",
+    "description": "Remove column ETAT_AVANCEMENT_SAISIE",
+    "columnName": "ETAT_AVANCEMENT_SAISIE"
+  },
+  {
+    "op": "core/column-removal",
+    "description": "Remove column PROVENANCE",
+    "columnName": "PROVENANCE"
+  },
+  {
+    "op": "core/column-removal",
+    "description": "Remove column PRECISIONS_PROVENANCE",
+    "columnName": "PRECISIONS_PROVENANCE"
+  },
+  {
+    "op": "core/column-removal",
+    "description": "Remove column EVENEMENTS",
+    "columnName": "EVENEMENTS"
+  },
+  {
+    "op": "core/column-removal",
+    "description": "Remove column categorie_picto",
+    "columnName": "categorie_picto"
+  },
+  {
+    "op": "core/column-addition",
+    "description": "Create column categorie_picto at index 6 based on column type_objet using expression grel:cell.cross(\"type_objets\", \"type_agorha\")[0].cells[\"type\"].value",
+    "engineConfig": {
+      "mode": "row-based",
+      "facets": []
+    },
+    "newColumnName": "categorie_picto",
+    "columnInsertIndex": 6,
+    "baseColumnName": "type_objet",
+    "expression": "grel:cell.cross(\"type_objets\", \"type_agorha\")[0].cells[\"type\"].value",
+    "onError": "set-to-blank"
+  },
+  {
+    "op": "core/text-transform",
+    "description": "Text transform on cells in column URL_objet_AGORHA using expression grel:value.replace(\".0\",\"\")",
+    "engineConfig": {
+      "mode": "row-based",
+      "facets": []
+    },
+    "columnName": "URL_objet_AGORHA",
+    "expression": "grel:value.replace(\".0\",\"\")",
+    "onError": "keep-original",
+    "repeat": false,
+    "repeatCount": 10
+  },
+  {
+    "op": "core/text-transform",
+    "description": "Text transform on cells in column id_objet using expression value.toString()",
+    "engineConfig": {
+      "mode": "row-based",
+      "facets": []
+    },
+    "columnName": "id_objet",
+    "expression": "value.toString()",
+    "onError": "keep-original",
+    "repeat": false,
+    "repeatCount": 10
+  },
+  {
+    "op": "core/text-transform",
+    "description": "Text transform on cells in column id_objet using expression value.trim()",
+    "engineConfig": {
+      "mode": "row-based",
+      "facets": []
+    },
+    "columnName": "id_objet",
+    "expression": "value.trim()",
+    "onError": "keep-original",
+    "repeat": false,
+    "repeatCount": 10
+  },
+  {
+    "op": "core/text-transform",
+    "description": "Text transform on cells in column id_objet using expression value.replace(/\\s+/,' ')",
+    "engineConfig": {
+      "mode": "row-based",
+      "facets": []
+    },
+    "columnName": "id_objet",
+    "expression": "value.replace(/\\s+/,' ')",
+    "onError": "keep-original",
+    "repeat": false,
+    "repeatCount": 10
+  },
+  {
+    "op": "core/column-addition",
+    "description": "Create column TexteTop10 at index 1 based on column id_objet using expression grel:cell.cross(\"texte_top10\", \"UK_oeuvre\")[0].cells[\"commentaire\"].value",
+    "engineConfig": {
+      "mode": "row-based",
+      "facets": []
+    },
+    "newColumnName": "TexteTop10",
+    "columnInsertIndex": 1,
+    "baseColumnName": "id_objet",
+    "expression": "grel:cell.cross(\"texte_top10\", \"UK_oeuvre\")[0].cells[\"commentaire\"].value",
+    "onError": "set-to-blank"
+  },
+  {
+    "op": "core/column-removal",
+    "description": "Remove column classement_objet",
+    "columnName": "classement_objet"
+  },
+  {
+    "op": "core/column-addition",
+    "description": "Create column classement_objet at index 1 based on column id_objet using expression grel:cell.cross(\"texte_top10\", \"UK_oeuvre\")[0].cells[\"classement\"].value",
+    "engineConfig": {
+      "mode": "row-based",
+      "facets": [
+        {
+          "omitError": false,
+          "expression": "isBlank(value)",
+          "selectBlank": false,
+          "invert": false,
+          "selectError": false,
+          "selection": [
+            {
+              "v": {
+                "v": false,
+                "l": "false"
+              }
+            }
+          ],
+          "name": "TexteTop10",
+          "omitBlank": false,
+          "type": "list",
+          "columnName": "TexteTop10"
+        }
+      ]
+    },
+    "newColumnName": "classement_objet",
+    "columnInsertIndex": 1,
+    "baseColumnName": "id_objet",
+    "expression": "grel:cell.cross(\"texte_top10\", \"UK_oeuvre\")[0].cells[\"classement\"].value",
+    "onError": "set-to-blank"
+  },
+  {
+    "op": "core/column-reorder",
+    "description": "Reorder columns",
+    "columnNames": [
+      "id_objet",
+      "auteur_objet",
+      "nom_objet",
+      "TexteTop10",
+      "description",
+      "classement_objet",
+      "type_objet",
+      "categorie_picto",
+      "matiere_filtre",
+      "dim_cm",
+      "echelle_cm",
+      "lieu_creation_nom",
+      "lieu_creation_pays",
+      "lieu_creation_lat",
+      "lieu_creation_long",
+      "lieu_creation_type",
+      "date_creation_string",
+      "date_creation_debut",
+      "date_creation_fin",
+      "lieu_decouverte_nom",
+      "lieu_decouverte_lat",
+      "lieu_decouverte_long",
+      "lieu_decouverte_pays",
+      "lieu_decouverte_type",
+      "date_decouverte_string ",
+      "date_decouverte_fin",
+      "date_decouverte_debut",
+      "conservation_nom",
+      "conservation_id",
+      "conservation_date_entree",
+      "conservation_ville",
+      "conservation_pays",
+      "conservation_lat",
+      "conservation_long",
+      "conservation_type",
+      "URL_objet_AGORHA"
+    ]
+  },
+  {
+    "op": "core/column-removal",
+    "description": "Remove column description",
+    "columnName": "description"
+  },
+  {
+    "op": "core/column-rename",
+    "description": "Rename column TexteTop10 to description",
+    "oldColumnName": "TexteTop10",
+    "newColumnName": "description"
+  },
+  {
+    "op": "core/fill-down",
+    "description": "Fill down cells in column classement_objet",
+    "engineConfig": {
+      "mode": "row-based",
+      "facets": [
+        {
+          "omitError": false,
+          "expression": "isBlank(value)",
+          "selectBlank": false,
+          "invert": false,
+          "selectError": false,
+          "selection": [
+            {
+              "v": {
+                "v": true,
+                "l": "true"
+              }
+            }
+          ],
+          "name": "description",
+          "omitBlank": false,
+          "type": "list",
+          "columnName": "description"
+        }
+      ]
+    },
+    "columnName": "classement_objet"
+  },
+  {
+    "op": "core/column-removal",
+    "description": "Remove column description",
+    "columnName": "description"
+  },
+  {
+    "op": "core/column-addition",
+    "description": "Create column description at index 1 based on column id_objet using expression grel:cell.cross(\"texte_top10\", \"UK_oeuvre\")[0].cells[\"description\"].value",
+    "engineConfig": {
+      "mode": "row-based",
+      "facets": []
+    },
+    "newColumnName": "description",
+    "columnInsertIndex": 1,
+    "baseColumnName": "id_objet",
+    "expression": "grel:cell.cross(\"texte_top10\", \"UK_oeuvre\")[0].cells[\"description\"].value",
+    "onError": "set-to-blank"
+  },
+  {
+    "op": "core/column-removal",
+    "description": "Remove column description",
+    "columnName": "description"
+  },
+  {
+    "op": "core/column-removal",
+    "description": "Remove column classement_objet",
+    "columnName": "classement_objet"
+  },
+  {
+    "op": "core/column-addition",
+    "description": "Create column classement at index 1 based on column id_objet using expression grel:cell.cross(\"texte_top10\", \"UK_oeuvre\")[0].cells[\"classement\"].value",
+    "engineConfig": {
+      "mode": "row-based",
+      "facets": []
+    },
+    "newColumnName": "classement",
+    "columnInsertIndex": 1,
+    "baseColumnName": "id_objet",
+    "expression": "grel:cell.cross(\"texte_top10\", \"UK_oeuvre\")[0].cells[\"classement\"].value",
+    "onError": "set-to-blank"
+  },
+  {
+    "op": "core/column-addition",
+    "description": "Create column commentaire at index 1 based on column id_objet using expression grel:cell.cross(\"texte_top10\", \"UK_oeuvre\")[0].cells[\"commentaire\"].value",
+    "engineConfig": {
+      "mode": "row-based",
+      "facets": []
+    },
+    "newColumnName": "commentaire",
+    "columnInsertIndex": 1,
+    "baseColumnName": "id_objet",
+    "expression": "grel:cell.cross(\"texte_top10\", \"UK_oeuvre\")[0].cells[\"commentaire\"].value",
+    "onError": "set-to-blank"
+  },
+  {
+    "op": "core/column-addition",
+    "description": "Create column texte_creation at index 1 based on column id_objet using expression grel:cell.cross(\"texte_top10\", \"UK_oeuvre\")[0].cells[\"texte_creation\"].value",
+    "engineConfig": {
+      "mode": "row-based",
+      "facets": []
+    },
+    "newColumnName": "texte_creation",
+    "columnInsertIndex": 1,
+    "baseColumnName": "id_objet",
+    "expression": "grel:cell.cross(\"texte_top10\", \"UK_oeuvre\")[0].cells[\"texte_creation\"].value",
+    "onError": "set-to-blank"
+  },
+  {
+    "op": "core/column-addition",
+    "description": "Create column texte_decouverte at index 1 based on column id_objet using expression grel:cell.cross(\"texte_top10\", \"UK_oeuvre\")[0].cells[\"texte_decouverte\"].value",
+    "engineConfig": {
+      "mode": "row-based",
+      "facets": []
+    },
+    "newColumnName": "texte_decouverte",
+    "columnInsertIndex": 1,
+    "baseColumnName": "id_objet",
+    "expression": "grel:cell.cross(\"texte_top10\", \"UK_oeuvre\")[0].cells[\"texte_decouverte\"].value",
+    "onError": "set-to-blank"
+  },
+  {
+    "op": "core/column-addition",
+    "description": "Create column texte_ventes at index 1 based on column id_objet using expression grel:cell.cross(\"texte_top10\", \"UK_oeuvre\")[0].cells[\"texte_ventes\"].value",
+    "engineConfig": {
+      "mode": "row-based",
+      "facets": []
+    },
+    "newColumnName": "texte_ventes",
+    "columnInsertIndex": 1,
+    "baseColumnName": "id_objet",
+    "expression": "grel:cell.cross(\"texte_top10\", \"UK_oeuvre\")[0].cells[\"texte_ventes\"].value",
+    "onError": "set-to-blank"
+  },
+  {
+    "op": "core/column-addition",
+    "description": "Create column texte_musee at index 1 based on column id_objet using expression grel:cell.cross(\"texte_top10\", \"UK_oeuvre\")[0].cells[\"texte_musee\"].value",
+    "engineConfig": {
+      "mode": "row-based",
+      "facets": []
+    },
+    "newColumnName": "texte_musee",
+    "columnInsertIndex": 1,
+    "baseColumnName": "id_objet",
+    "expression": "grel:cell.cross(\"texte_top10\", \"UK_oeuvre\")[0].cells[\"texte_musee\"].value",
+    "onError": "set-to-blank"
+  },
+  {
+    "op": "core/column-reorder",
+    "description": "Reorder columns",
+    "columnNames": [
+      "id_objet",
+      "classement",
+      "commentaire",
+      "texte_creation",
+      "texte_decouverte",
+      "texte_ventes",
+      "texte_musee",
+      "auteur_objet",
+      "nom_objet",
+      "type_objet",
+      "categorie_picto",
+      "matiere_filtre",
+      "dim_cm",
+      "echelle_cm",
+      "lieu_creation_nom",
+      "lieu_creation_pays",
+      "lieu_creation_lat",
+      "lieu_creation_long",
+      "lieu_creation_type",
+      "date_creation_string",
+      "date_creation_debut",
+      "date_creation_fin",
+      "lieu_decouverte_nom",
+      "lieu_decouverte_lat",
+      "lieu_decouverte_long",
+      "lieu_decouverte_pays",
+      "lieu_decouverte_type",
+      "date_decouverte_string ",
+      "date_decouverte_fin",
+      "date_decouverte_debut",
+      "conservation_nom",
+      "conservation_id",
+      "conservation_date_entree",
+      "conservation_ville",
+      "conservation_pays",
+      "conservation_lat",
+      "conservation_long",
+      "conservation_type",
+      "URL_objet_AGORHA"
+    ]
+  },
+  {
+    "op": "core/text-transform",
+    "description": "Text transform on cells in column type_objet using expression value.trim()",
+    "engineConfig": {
+      "mode": "row-based",
+      "facets": [
+        {
+          "omitError": false,
+          "expression": "value",
+          "selectBlank": false,
+          "selection": [
+            {
+              "v": {
+                "v": "1",
+                "l": "1"
+              }
+            }
+          ],
+          "selectError": false,
+          "invert": false,
+          "name": "classement",
+          "omitBlank": false,
+          "type": "list",
+          "columnName": "classement"
+        }
+      ]
+    },
+    "columnName": "type_objet",
+    "expression": "value.trim()",
+    "onError": "keep-original",
+    "repeat": false,
+    "repeatCount": 10
+  },
+  {
+    "op": "core/text-transform",
+    "description": "Text transform on cells in column type_objet using expression value.replace(/\\s+/,' ')",
+    "engineConfig": {
+      "mode": "row-based",
+      "facets": [
+        {
+          "omitError": false,
+          "expression": "value",
+          "selectBlank": false,
+          "selection": [
+            {
+              "v": {
+                "v": "1",
+                "l": "1"
+              }
+            }
+          ],
+          "selectError": false,
+          "invert": false,
+          "name": "classement",
+          "omitBlank": false,
+          "type": "list",
+          "columnName": "classement"
+        }
+      ]
+    },
+    "columnName": "type_objet",
+    "expression": "value.replace(/\\s+/,' ')",
+    "onError": "keep-original",
+    "repeat": false,
+    "repeatCount": 10
+  },
+  {
+    "op": "core/column-removal",
+    "description": "Remove column categorie_picto",
+    "columnName": "categorie_picto"
+  },
+  {
+    "op": "core/column-addition",
+    "description": "Create column categorie_picto at index 10 based on column type_objet using expression grel:cell.cross(\"type_objet\", \"TYPE_OEUVRE\")[0].cells[\"type\"].value",
+    "engineConfig": {
+      "mode": "row-based",
+      "facets": [
+        {
+          "omitError": false,
+          "expression": "isBlank(value)",
+          "selectBlank": false,
+          "selection": [
+            {
+              "v": {
+                "v": true,
+                "l": "true"
+              }
+            },
+            {
+              "v": {
+                "v": false,
+                "l": "false"
+              }
+            }
+          ],
+          "selectError": false,
+          "invert": false,
+          "name": "classement",
+          "omitBlank": false,
+          "type": "list",
+          "columnName": "classement"
+        }
+      ]
+    },
+    "newColumnName": "categorie_picto",
+    "columnInsertIndex": 10,
+    "baseColumnName": "type_objet",
+    "expression": "grel:cell.cross(\"type_objet\", \"TYPE_OEUVRE\")[0].cells[\"type\"].value",
+    "onError": "set-to-blank"
+  },
+  {
+    "op": "core/text-transform",
+    "description": "Text transform on cells in column date_creation_string using expression value.trim()",
+    "engineConfig": {
+      "mode": "row-based",
+      "facets": [
+        {
+          "omitError": false,
+          "expression": "isBlank(value)",
+          "selectBlank": false,
+          "selection": [
+            {
+              "v": {
+                "v": false,
+                "l": "false"
+              }
+            }
+          ],
+          "selectError": false,
+          "invert": false,
+          "name": "date_creation_string",
+          "omitBlank": false,
+          "type": "list",
+          "columnName": "date_creation_string"
+        }
+      ]
+    },
+    "columnName": "date_creation_string",
+    "expression": "value.trim()",
+    "onError": "keep-original",
+    "repeat": false,
+    "repeatCount": 10
+  },
+  {
+    "op": "core/text-transform",
+    "description": "Text transform on cells in column date_creation_string using expression value.replace(/\\s+/,' ')",
+    "engineConfig": {
+      "mode": "row-based",
+      "facets": [
+        {
+          "omitError": false,
+          "expression": "isBlank(value)",
+          "selectBlank": false,
+          "selection": [
+            {
+              "v": {
+                "v": false,
+                "l": "false"
+              }
+            }
+          ],
+          "selectError": false,
+          "invert": false,
+          "name": "date_creation_string",
+          "omitBlank": false,
+          "type": "list",
+          "columnName": "date_creation_string"
+        }
+      ]
+    },
+    "columnName": "date_creation_string",
+    "expression": "value.replace(/\\s+/,' ')",
+    "onError": "keep-original",
+    "repeat": false,
+    "repeatCount": 10
+  },
+  {
+    "op": "core/column-addition",
+    "description": "Create column date_debut at index 20 based on column date_creation_string using expression grel:cell.cross(\"date_dvlp\", \"date\")[0].cells[\"date_debut\"].value",
+    "engineConfig": {
+      "mode": "row-based",
+      "facets": [
+        {
+          "omitError": false,
+          "expression": "isBlank(value)",
+          "selectBlank": false,
+          "selection": [
+            {
+              "v": {
+                "v": false,
+                "l": "false"
+              }
+            }
+          ],
+          "selectError": false,
+          "invert": false,
+          "name": "date_creation_string",
+          "omitBlank": false,
+          "type": "list",
+          "columnName": "date_creation_string"
+        }
+      ]
+    },
+    "newColumnName": "date_debut",
+    "columnInsertIndex": 20,
+    "baseColumnName": "date_creation_string",
+    "expression": "grel:cell.cross(\"date_dvlp\", \"date\")[0].cells[\"date_debut\"].value",
+    "onError": "set-to-blank"
+  },
+  {
+    "op": "core/column-removal",
+    "description": "Remove column date_creation_debut",
+    "columnName": "date_creation_debut"
+  },
+  {
+    "op": "core/column-rename",
+    "description": "Rename column date_debut to date_creation_debut",
+    "oldColumnName": "date_debut",
+    "newColumnName": "date_creation_debut"
+  },
+  {
+    "op": "core/column-addition",
+    "description": "Create column date_fin at index 20 based on column date_creation_string using expression grel:cell.cross(\"date_dvlp\", \"date\")[0].cells[\"date_fin\"].value",
+    "engineConfig": {
+      "mode": "row-based",
+      "facets": [
+        {
+          "omitError": false,
+          "expression": "isBlank(value)",
+          "selectBlank": false,
+          "selection": [
+            {
+              "v": {
+                "v": false,
+                "l": "false"
+              }
+            }
+          ],
+          "selectError": false,
+          "invert": false,
+          "name": "date_creation_string",
+          "omitBlank": false,
+          "type": "list",
+          "columnName": "date_creation_string"
+        }
+      ]
+    },
+    "newColumnName": "date_fin",
+    "columnInsertIndex": 20,
+    "baseColumnName": "date_creation_string",
+    "expression": "grel:cell.cross(\"date_dvlp\", \"date\")[0].cells[\"date_fin\"].value",
+    "onError": "set-to-blank"
+  },
+  {
+    "op": "core/column-removal",
+    "description": "Remove column date_creation_fin",
+    "columnName": "date_creation_fin"
+  },
+  {
+    "op": "core/column-rename",
+    "description": "Rename column date_fin to date_creation_fin",
+    "oldColumnName": "date_fin",
+    "newColumnName": "date_creation_fin"
+  },
+  {
+    "op": "core/mass-edit",
+    "description": "Mass edit cells in column lieu_decouverte_lat",
+    "engineConfig": {
+      "mode": "row-based",
+      "facets": [
+        {
+          "omitError": false,
+          "expression": "isBlank(value)",
+          "selectBlank": false,
+          "selection": [
+            {
+              "v": {
+                "v": true,
+                "l": "true"
+              }
+            }
+          ],
+          "selectError": false,
+          "invert": false,
+          "name": "classement",
+          "omitBlank": false,
+          "type": "list",
+          "columnName": "classement"
+        },
+        {
+          "omitError": false,
+          "expression": "isBlank(value)",
+          "selectBlank": false,
+          "selection": [
+            {
+              "v": {
+                "v": false,
+                "l": "false"
+              }
+            }
+          ],
+          "selectError": false,
+          "invert": false,
+          "name": "conservation_nom",
+          "omitBlank": false,
+          "type": "list",
+          "columnName": "conservation_nom"
+        }
+      ]
+    },
+    "columnName": "lieu_decouverte_lat",
+    "expression": "value",
+    "edits": [
+      {
+        "fromBlank": false,
+        "fromError": false,
+        "from": [
+          "\"40.42064875"
+        ],
+        "to": "40.42064875"
+      }
+    ]
+  },
+  {
+    "op": "core/mass-edit",
+    "description": "Mass edit cells in column lieu_decouverte_lat",
+    "engineConfig": {
+      "mode": "row-based",
+      "facets": [
+        {
+          "omitError": false,
+          "expression": "isBlank(value)",
+          "selectBlank": false,
+          "selection": [
+            {
+              "v": {
+                "v": true,
+                "l": "true"
+              }
+            }
+          ],
+          "selectError": false,
+          "invert": false,
+          "name": "classement",
+          "omitBlank": false,
+          "type": "list",
+          "columnName": "classement"
+        },
+        {
+          "omitError": false,
+          "expression": "isBlank(value)",
+          "selectBlank": false,
+          "selection": [
+            {
+              "v": {
+                "v": false,
+                "l": "false"
+              }
+            }
+          ],
+          "selectError": false,
+          "invert": false,
+          "name": "conservation_nom",
+          "omitBlank": false,
+          "type": "list",
+          "columnName": "conservation_nom"
+        }
+      ]
+    },
+    "columnName": "lieu_decouverte_lat",
+    "expression": "value",
+    "edits": [
+      {
+        "fromBlank": false,
+        "fromError": false,
+        "from": [
+          "\"42.4192224"
+        ],
+        "to": "42.4192224"
+      }
+    ]
+  },
+  {
+    "op": "core/mass-edit",
+    "description": "Mass edit cells in column lieu_decouverte_lat",
+    "engineConfig": {
+      "mode": "row-based",
+      "facets": [
+        {
+          "omitError": false,
+          "expression": "isBlank(value)",
+          "selectBlank": false,
+          "selection": [
+            {
+              "v": {
+                "v": true,
+                "l": "true"
+              }
+            }
+          ],
+          "selectError": false,
+          "invert": false,
+          "name": "classement",
+          "omitBlank": false,
+          "type": "list",
+          "columnName": "classement"
+        },
+        {
+          "omitError": false,
+          "expression": "isBlank(value)",
+          "selectBlank": false,
+          "selection": [
+            {
+              "v": {
+                "v": false,
+                "l": "false"
+              }
+            }
+          ],
+          "selectError": false,
+          "invert": false,
+          "name": "conservation_nom",
+          "omitBlank": false,
+          "type": "list",
+          "columnName": "conservation_nom"
+        }
+      ]
+    },
+    "columnName": "lieu_decouverte_lat",
+    "expression": "value",
+    "edits": [
+      {
+        "fromBlank": false,
+        "fromError": false,
+        "from": [
+          "\"40.926823"
+        ],
+        "to": "40.926823"
+      }
+    ]
+  },
+  {
+    "op": "core/mass-edit",
+    "description": "Mass edit cells in column lieu_decouverte_lat",
+    "engineConfig": {
+      "mode": "row-based",
+      "facets": [
+        {
+          "omitError": false,
+          "expression": "isBlank(value)",
+          "selectBlank": false,
+          "selection": [
+            {
+              "v": {
+                "v": true,
+                "l": "true"
+              }
+            }
+          ],
+          "selectError": false,
+          "invert": false,
+          "name": "classement",
+          "omitBlank": false,
+          "type": "list",
+          "columnName": "classement"
+        },
+        {
+          "omitError": false,
+          "expression": "isBlank(value)",
+          "selectBlank": false,
+          "selection": [
+            {
+              "v": {
+                "v": false,
+                "l": "false"
+              }
+            }
+          ],
+          "selectError": false,
+          "invert": false,
+          "name": "lieu_decouverte_nom",
+          "omitBlank": false,
+          "type": "list",
+          "columnName": "lieu_decouverte_nom"
+        }
+      ]
+    },
+    "columnName": "lieu_decouverte_lat",
+    "expression": "value",
+    "edits": [
+      {
+        "fromBlank": false,
+        "fromError": false,
+        "from": [
+          "\"42.4210287479"
+        ],
+        "to": "42.4210287479"
+      }
+    ]
+  },
+  {
+    "op": "core/mass-edit",
+    "description": "Mass edit cells in column lieu_decouverte_lat",
+    "engineConfig": {
+      "mode": "row-based",
+      "facets": [
+        {
+          "omitError": false,
+          "expression": "isBlank(value)",
+          "selectBlank": false,
+          "selection": [
+            {
+              "v": {
+                "v": true,
+                "l": "true"
+              }
+            }
+          ],
+          "selectError": false,
+          "invert": false,
+          "name": "classement",
+          "omitBlank": false,
+          "type": "list",
+          "columnName": "classement"
+        },
+        {
+          "omitError": false,
+          "expression": "isBlank(value)",
+          "selectBlank": false,
+          "selection": [
+            {
+              "v": {
+                "v": false,
+                "l": "false"
+              }
+            }
+          ],
+          "selectError": false,
+          "invert": false,
+          "name": "lieu_decouverte_nom",
+          "omitBlank": false,
+          "type": "list",
+          "columnName": "lieu_decouverte_nom"
+        }
+      ]
+    },
+    "columnName": "lieu_decouverte_lat",
+    "expression": "value",
+    "edits": [
+      {
+        "fromBlank": false,
+        "fromError": false,
+        "from": [
+          "\"42.4192224"
+        ],
+        "to": "42.4192224"
+      }
+    ]
+  },
+  {
+    "op": "core/mass-edit",
+    "description": "Mass edit cells in column lieu_decouverte_lat",
+    "engineConfig": {
+      "mode": "row-based",
+      "facets": [
+        {
+          "omitError": false,
+          "expression": "isBlank(value)",
+          "selectBlank": false,
+          "selection": [
+            {
+              "v": {
+                "v": true,
+                "l": "true"
+              }
+            }
+          ],
+          "selectError": false,
+          "invert": false,
+          "name": "classement",
+          "omitBlank": false,
+          "type": "list",
+          "columnName": "classement"
+        },
+        {
+          "omitError": false,
+          "expression": "isBlank(value)",
+          "selectBlank": false,
+          "selection": [
+            {
+              "v": {
+                "v": false,
+                "l": "false"
+              }
+            }
+          ],
+          "selectError": false,
+          "invert": false,
+          "name": "lieu_decouverte_nom",
+          "omitBlank": false,
+          "type": "list",
+          "columnName": "lieu_decouverte_nom"
+        }
+      ]
+    },
+    "columnName": "lieu_decouverte_lat",
+    "expression": "value",
+    "edits": [
+      {
+        "fromBlank": false,
+        "fromError": false,
+        "from": [
+          "\"40.926823"
+        ],
+        "to": "40.926823"
+      }
+    ]
+  },
+  {
+    "op": "core/mass-edit",
+    "description": "Mass edit cells in column lieu_decouverte_lat",
+    "engineConfig": {
+      "mode": "row-based",
+      "facets": [
+        {
+          "omitError": false,
+          "expression": "isBlank(value)",
+          "selectBlank": false,
+          "selection": [
+            {
+              "v": {
+                "v": true,
+                "l": "true"
+              }
+            }
+          ],
+          "selectError": false,
+          "invert": false,
+          "name": "classement",
+          "omitBlank": false,
+          "type": "list",
+          "columnName": "classement"
+        },
+        {
+          "omitError": false,
+          "expression": "isBlank(value)",
+          "selectBlank": false,
+          "selection": [
+            {
+              "v": {
+                "v": false,
+                "l": "false"
+              }
+            }
+          ],
+          "selectError": false,
+          "invert": false,
+          "name": "lieu_decouverte_nom",
+          "omitBlank": false,
+          "type": "list",
+          "columnName": "lieu_decouverte_nom"
+        }
+      ]
+    },
+    "columnName": "lieu_decouverte_lat",
+    "expression": "value",
+    "edits": [
+      {
+        "fromBlank": false,
+        "fromError": false,
+        "from": [
+          "\"40.478497"
+        ],
+        "to": "40.478497"
+      }
+    ]
+  },
+  {
+    "op": "core/mass-edit",
+    "description": "Mass edit cells in column lieu_decouverte_lat",
+    "engineConfig": {
+      "mode": "row-based",
+      "facets": [
+        {
+          "omitError": false,
+          "expression": "isBlank(value)",
+          "selectBlank": false,
+          "selection": [
+            {
+              "v": {
+                "v": false,
+                "l": "false"
+              }
+            }
+          ],
+          "selectError": false,
+          "invert": false,
+          "name": "lieu_decouverte_nom",
+          "omitBlank": false,
+          "type": "list",
+          "columnName": "lieu_decouverte_nom"
+        },
+        {
+          "mode": "text",
+          "caseSensitive": false,
+          "query": "\"",
+          "name": "lieu_decouverte_lat",
+          "type": "text",
+          "columnName": "lieu_decouverte_lat"
+        }
+      ]
+    },
+    "columnName": "lieu_decouverte_lat",
+    "expression": "value",
+    "edits": [
+      {
+        "fromBlank": false,
+        "fromError": false,
+        "from": [
+          "\"39.5232397778"
+        ],
+        "to": "39.5232397778"
+      }
+    ]
+  },
+  {
+    "op": "core/mass-edit",
+    "description": "Mass edit cells in column lieu_decouverte_lat",
+    "engineConfig": {
+      "mode": "row-based",
+      "facets": [
+        {
+          "omitError": false,
+          "expression": "isBlank(value)",
+          "selectBlank": false,
+          "selection": [
+            {
+              "v": {
+                "v": false,
+                "l": "false"
+              }
+            }
+          ],
+          "selectError": false,
+          "invert": false,
+          "name": "lieu_decouverte_nom",
+          "omitBlank": false,
+          "type": "list",
+          "columnName": "lieu_decouverte_nom"
+        },
+        {
+          "mode": "text",
+          "caseSensitive": false,
+          "query": "\"",
+          "name": "lieu_decouverte_lat",
+          "type": "text",
+          "columnName": "lieu_decouverte_lat"
+        }
+      ]
+    },
+    "columnName": "lieu_decouverte_lat",
+    "expression": "value",
+    "edits": [
+      {
+        "fromBlank": false,
+        "fromError": false,
+        "from": [
+          "\"40.936446"
+        ],
+        "to": "40.936446"
+      }
+    ]
+  },
+  {
+    "op": "core/mass-edit",
+    "description": "Mass edit cells in column lieu_decouverte_lat",
+    "engineConfig": {
+      "mode": "row-based",
+      "facets": [
+        {
+          "omitError": false,
+          "expression": "isBlank(value)",
+          "selectBlank": false,
+          "selection": [
+            {
+              "v": {
+                "v": false,
+                "l": "false"
+              }
+            }
+          ],
+          "selectError": false,
+          "invert": false,
+          "name": "lieu_decouverte_nom",
+          "omitBlank": false,
+          "type": "list",
+          "columnName": "lieu_decouverte_nom"
+        },
+        {
+          "mode": "text",
+          "caseSensitive": false,
+          "query": "\"",
+          "name": "lieu_decouverte_lat",
+          "type": "text",
+          "columnName": "lieu_decouverte_lat"
+        }
+      ]
+    },
+    "columnName": "lieu_decouverte_lat",
+    "expression": "value",
+    "edits": [
+      {
+        "fromBlank": false,
+        "fromError": false,
+        "from": [
+          "\"37.575998"
+        ],
+        "to": "37.575998"
+      }
+    ]
+  },
+  {
+    "op": "core/mass-edit",
+    "description": "Mass edit cells in column lieu_decouverte_lat",
+    "engineConfig": {
+      "mode": "row-based",
+      "facets": [
+        {
+          "omitError": false,
+          "expression": "isBlank(value)",
+          "selectBlank": false,
+          "selection": [
+            {
+              "v": {
+                "v": false,
+                "l": "false"
+              }
+            }
+          ],
+          "selectError": false,
+          "invert": false,
+          "name": "lieu_decouverte_nom",
+          "omitBlank": false,
+          "type": "list",
+          "columnName": "lieu_decouverte_nom"
+        },
+        {
+          "mode": "text",
+          "caseSensitive": false,
+          "query": "\"",
+          "name": "lieu_decouverte_lat",
+          "type": "text",
+          "columnName": "lieu_decouverte_lat"
+        }
+      ]
+    },
+    "columnName": "lieu_decouverte_lat",
+    "expression": "value",
+    "edits": [
+      {
+        "fromBlank": false,
+        "fromError": false,
+        "from": [
+          "\"42.4192224"
+        ],
+        "to": "42.4192224"
+      }
+    ]
+  },
+  {
+    "op": "core/mass-edit",
+    "description": "Mass edit cells in column lieu_decouverte_lat",
+    "engineConfig": {
+      "mode": "row-based",
+      "facets": [
+        {
+          "omitError": false,
+          "expression": "isBlank(value)",
+          "selectBlank": false,
+          "selection": [
+            {
+              "v": {
+                "v": false,
+                "l": "false"
+              }
+            }
+          ],
+          "selectError": false,
+          "invert": false,
+          "name": "lieu_decouverte_nom",
+          "omitBlank": false,
+          "type": "list",
+          "columnName": "lieu_decouverte_nom"
+        },
+        {
+          "mode": "text",
+          "caseSensitive": false,
+          "query": "\"",
+          "name": "lieu_decouverte_lat",
+          "type": "text",
+          "columnName": "lieu_decouverte_lat"
+        }
+      ]
+    },
+    "columnName": "lieu_decouverte_lat",
+    "expression": "value",
+    "edits": [
+      {
+        "fromBlank": false,
+        "fromError": false,
+        "from": [
+          "\"41.077975"
+        ],
+        "to": "41.077975"
+      }
+    ]
+  },
+  {
+    "op": "core/mass-edit",
+    "description": "Mass edit cells in column lieu_decouverte_lat",
+    "engineConfig": {
+      "mode": "row-based",
+      "facets": [
+        {
+          "omitError": false,
+          "expression": "isBlank(value)",
+          "selectBlank": false,
+          "selection": [
+            {
+              "v": {
+                "v": false,
+                "l": "false"
+              }
+            }
+          ],
+          "selectError": false,
+          "invert": false,
+          "name": "lieu_decouverte_nom",
+          "omitBlank": false,
+          "type": "list",
+          "columnName": "lieu_decouverte_nom"
+        },
+        {
+          "mode": "text",
+          "caseSensitive": false,
+          "query": "\"",
+          "name": "lieu_decouverte_lat",
+          "type": "text",
+          "columnName": "lieu_decouverte_lat"
+        }
+      ]
+    },
+    "columnName": "lieu_decouverte_lat",
+    "expression": "value",
+    "edits": [
+      {
+        "fromBlank": false,
+        "fromError": false,
+        "from": [
+          "\"40.926823"
+        ],
+        "to": "40.926823"
+      }
+    ]
+  },
+  {
+    "op": "core/mass-edit",
+    "description": "Mass edit cells in column lieu_decouverte_long",
+    "engineConfig": {
+      "mode": "row-based",
+      "facets": [
+        {
+          "omitError": false,
+          "expression": "isBlank(value)",
+          "selectBlank": false,
+          "selection": [
+            {
+              "v": {
+                "v": false,
+                "l": "false"
+              }
+            }
+          ],
+          "selectError": false,
+          "invert": false,
+          "name": "lieu_decouverte_nom",
+          "omitBlank": false,
+          "type": "list",
+          "columnName": "lieu_decouverte_nom"
+        },
+        {
+          "mode": "text",
+          "caseSensitive": false,
+          "query": "\"",
+          "name": "lieu_decouverte_long",
+          "type": "text",
+          "columnName": "lieu_decouverte_long"
+        }
+      ]
+    },
+    "columnName": "lieu_decouverte_long",
+    "expression": "value",
+    "edits": [
+      {
+        "fromBlank": false,
+        "fromError": false,
+        "from": [
+          "  11.7527441248\""
+        ],
+        "to": "  11.7527441248"
+      }
+    ]
+  },
+  {
+    "op": "core/mass-edit",
+    "description": "Mass edit cells in column lieu_decouverte_long",
+    "engineConfig": {
+      "mode": "row-based",
+      "facets": [
+        {
+          "omitError": false,
+          "expression": "isBlank(value)",
+          "selectBlank": false,
+          "selection": [
+            {
+              "v": {
+                "v": false,
+                "l": "false"
+              }
+            }
+          ],
+          "selectError": false,
+          "invert": false,
+          "name": "lieu_decouverte_nom",
+          "omitBlank": false,
+          "type": "list",
+          "columnName": "lieu_decouverte_nom"
+        },
+        {
+          "mode": "text",
+          "caseSensitive": false,
+          "query": "\"",
+          "name": "lieu_decouverte_long",
+          "type": "text",
+          "columnName": "lieu_decouverte_long"
+        }
+      ]
+    },
+    "columnName": "lieu_decouverte_long",
+    "expression": "value",
+    "edits": [
+      {
+        "fromBlank": false,
+        "fromError": false,
+        "from": [
+          "  11.6286618333\""
+        ],
+        "to": "  11.6286618333"
+      }
+    ]
+  },
+  {
+    "op": "core/mass-edit",
+    "description": "Mass edit cells in column lieu_decouverte_long",
+    "engineConfig": {
+      "mode": "row-based",
+      "facets": [
+        {
+          "omitError": false,
+          "expression": "isBlank(value)",
+          "selectBlank": false,
+          "selection": [
+            {
+              "v": {
+                "v": false,
+                "l": "false"
+              }
+            }
+          ],
+          "selectError": false,
+          "invert": false,
+          "name": "lieu_decouverte_nom",
+          "omitBlank": false,
+          "type": "list",
+          "columnName": "lieu_decouverte_nom"
+        },
+        {
+          "mode": "text",
+          "caseSensitive": false,
+          "query": "\"",
+          "name": "lieu_decouverte_long",
+          "type": "text",
+          "columnName": "lieu_decouverte_long"
+        }
+      ]
+    },
+    "columnName": "lieu_decouverte_long",
+    "expression": "value",
+    "edits": [
+      {
+        "fromBlank": false,
+        "fromError": false,
+        "from": [
+          "  15.00532475\""
+        ],
+        "to": "  15.00532475"
+      }
+    ]
+  },
+  {
+    "op": "core/mass-edit",
+    "description": "Mass edit cells in column lieu_decouverte_long",
+    "engineConfig": {
+      "mode": "row-based",
+      "facets": [
+        {
+          "omitError": false,
+          "expression": "isBlank(value)",
+          "selectBlank": false,
+          "selection": [
+            {
+              "v": {
+                "v": false,
+                "l": "false"
+              }
+            }
+          ],
+          "selectError": false,
+          "invert": false,
+          "name": "lieu_decouverte_nom",
+          "omitBlank": false,
+          "type": "list",
+          "columnName": "lieu_decouverte_nom"
+        },
+        {
+          "mode": "text",
+          "caseSensitive": false,
+          "query": "\"",
+          "name": "lieu_decouverte_long",
+          "type": "text",
+          "columnName": "lieu_decouverte_long"
+        }
+      ]
+    },
+    "columnName": "lieu_decouverte_long",
+    "expression": "value",
+    "edits": [
+      {
+        "fromBlank": false,
+        "fromError": false,
+        "from": [
+          "  14.524545\""
+        ],
+        "to": "  14.524545"
+      }
+    ]
+  },
+  {
+    "op": "core/mass-edit",
+    "description": "Mass edit cells in column lieu_decouverte_long",
+    "engineConfig": {
+      "mode": "row-based",
+      "facets": [
+        {
+          "omitError": false,
+          "expression": "isBlank(value)",
+          "selectBlank": false,
+          "selection": [
+            {
+              "v": {
+                "v": false,
+                "l": "false"
+              }
+            }
+          ],
+          "selectError": false,
+          "invert": false,
+          "name": "lieu_decouverte_nom",
+          "omitBlank": false,
+          "type": "list",
+          "columnName": "lieu_decouverte_nom"
+        },
+        {
+          "mode": "text",
+          "caseSensitive": false,
+          "query": "\"",
+          "name": "lieu_decouverte_long",
+          "type": "text",
+          "columnName": "lieu_decouverte_long"
+        }
+      ]
+    },
+    "columnName": "lieu_decouverte_long",
+    "expression": "value",
+    "edits": [
+      {
+        "fromBlank": false,
+        "fromError": false,
+        "from": [
+          "  16.127751\""
+        ],
+        "to": "  16.127751"
+      }
+    ]
+  },
+  {
+    "op": "core/mass-edit",
+    "description": "Mass edit cells in column lieu_decouverte_long",
+    "engineConfig": {
+      "mode": "row-based",
+      "facets": [
+        {
+          "omitError": false,
+          "expression": "isBlank(value)",
+          "selectBlank": false,
+          "selection": [
+            {
+              "v": {
+                "v": false,
+                "l": "false"
+              }
+            }
+          ],
+          "selectError": false,
+          "invert": false,
+          "name": "lieu_decouverte_nom",
+          "omitBlank": false,
+          "type": "list",
+          "columnName": "lieu_decouverte_nom"
+        },
+        {
+          "mode": "text",
+          "caseSensitive": false,
+          "query": "\"",
+          "name": "lieu_decouverte_long",
+          "type": "text",
+          "columnName": "lieu_decouverte_long"
+        }
+      ]
+    },
+    "columnName": "lieu_decouverte_long",
+    "expression": "value",
+    "edits": [
+      {
+        "fromBlank": false,
+        "fromError": false,
+        "from": [
+          "  16.71231\""
+        ],
+        "to": "  16.71231"
+      }
+    ]
+  },
+  {
+    "op": "core/mass-edit",
+    "description": "Mass edit cells in column lieu_decouverte_long",
+    "engineConfig": {
+      "mode": "row-based",
+      "facets": [
+        {
+          "omitError": false,
+          "expression": "isBlank(value)",
+          "selectBlank": false,
+          "selection": [
+            {
+              "v": {
+                "v": false,
+                "l": "false"
+              }
+            }
+          ],
+          "selectError": false,
+          "invert": false,
+          "name": "lieu_decouverte_nom",
+          "omitBlank": false,
+          "type": "list",
+          "columnName": "lieu_decouverte_nom"
+        },
+        {
+          "mode": "text",
+          "caseSensitive": false,
+          "query": "\"",
+          "name": "lieu_decouverte_long",
+          "type": "text",
+          "columnName": "lieu_decouverte_long"
+        }
+      ]
+    },
+    "columnName": "lieu_decouverte_long",
+    "expression": "value",
+    "edits": [
+      {
+        "fromBlank": false,
+        "fromError": false,
+        "from": [
+          "  16.724172\""
+        ],
+        "to": "  16.724172"
+      }
+    ]
+  },
+  {
+    "op": "core/mass-edit",
+    "description": "Mass edit cells in column lieu_decouverte_long",
+    "engineConfig": {
+      "mode": "row-based",
+      "facets": [
+        {
+          "omitError": false,
+          "expression": "isBlank(value)",
+          "selectBlank": false,
+          "selection": [
+            {
+              "v": {
+                "v": false,
+                "l": "false"
+              }
+            }
+          ],
+          "selectError": false,
+          "invert": false,
+          "name": "lieu_decouverte_nom",
+          "omitBlank": false,
+          "type": "list",
+          "columnName": "lieu_decouverte_nom"
+        },
+        {
+          "mode": "text",
+          "caseSensitive": false,
+          "query": "\"",
+          "name": "lieu_decouverte_long",
+          "type": "text",
+          "columnName": "lieu_decouverte_long"
+        }
+      ]
+    },
+    "columnName": "lieu_decouverte_long",
+    "expression": "value",
+    "edits": [
+      {
+        "fromBlank": false,
+        "fromError": false,
+        "from": [
+          "  14.135206\""
+        ],
+        "to": "  14.135206"
+      }
+    ]
+  },
+  {
+    "op": "core/mass-edit",
+    "description": "Mass edit cells in column lieu_decouverte_long",
+    "engineConfig": {
+      "mode": "row-based",
+      "facets": [
+        {
+          "omitError": false,
+          "expression": "isBlank(value)",
+          "selectBlank": false,
+          "selection": [
+            {
+              "v": {
+                "v": false,
+                "l": "false"
+              }
+            }
+          ],
+          "selectError": false,
+          "invert": false,
+          "name": "lieu_decouverte_nom",
+          "omitBlank": false,
+          "type": "list",
+          "columnName": "lieu_decouverte_nom"
+        },
+        {
+          "mode": "text",
+          "caseSensitive": false,
+          "query": "\"",
+          "name": "lieu_decouverte_long",
+          "type": "text",
+          "columnName": "lieu_decouverte_long"
+        }
+      ]
+    },
+    "columnName": "lieu_decouverte_long",
+    "expression": "value",
+    "edits": [
+      {
+        "fromBlank": false,
+        "fromError": false,
+        "from": [
+          "  14.521557\""
+        ],
+        "to": "  14.521557"
+      }
+    ]
+  },
+  {
+    "op": "core/text-transform",
+    "description": "Text transform on cells in column lieu_decouverte_lat using expression value.trim()",
+    "engineConfig": {
+      "mode": "row-based",
+      "facets": [
+        {
+          "omitError": false,
+          "expression": "isBlank(value)",
+          "selectBlank": false,
+          "selection": [
+            {
+              "v": {
+                "v": false,
+                "l": "false"
+              }
+            }
+          ],
+          "selectError": false,
+          "invert": false,
+          "name": "lieu_decouverte_nom",
+          "omitBlank": false,
+          "type": "list",
+          "columnName": "lieu_decouverte_nom"
+        }
+      ]
+    },
+    "columnName": "lieu_decouverte_lat",
+    "expression": "value.trim()",
+    "onError": "keep-original",
+    "repeat": false,
+    "repeatCount": 10
+  },
+  {
+    "op": "core/text-transform",
+    "description": "Text transform on cells in column lieu_decouverte_lat using expression value.replace(/\\s+/,' ')",
+    "engineConfig": {
+      "mode": "row-based",
+      "facets": [
+        {
+          "omitError": false,
+          "expression": "isBlank(value)",
+          "selectBlank": false,
+          "selection": [
+            {
+              "v": {
+                "v": false,
+                "l": "false"
+              }
+            }
+          ],
+          "selectError": false,
+          "invert": false,
+          "name": "lieu_decouverte_nom",
+          "omitBlank": false,
+          "type": "list",
+          "columnName": "lieu_decouverte_nom"
+        }
+      ]
+    },
+    "columnName": "lieu_decouverte_lat",
+    "expression": "value.replace(/\\s+/,' ')",
+    "onError": "keep-original",
+    "repeat": false,
+    "repeatCount": 10
+  },
+  {
+    "op": "core/text-transform",
+    "description": "Text transform on cells in column lieu_decouverte_long using expression value.trim()",
+    "engineConfig": {
+      "mode": "row-based",
+      "facets": [
+        {
+          "omitError": false,
+          "expression": "isBlank(value)",
+          "selectBlank": false,
+          "selection": [
+            {
+              "v": {
+                "v": false,
+                "l": "false"
+              }
+            }
+          ],
+          "selectError": false,
+          "invert": false,
+          "name": "lieu_decouverte_nom",
+          "omitBlank": false,
+          "type": "list",
+          "columnName": "lieu_decouverte_nom"
+        }
+      ]
+    },
+    "columnName": "lieu_decouverte_long",
+    "expression": "value.trim()",
+    "onError": "keep-original",
+    "repeat": false,
+    "repeatCount": 10
+  },
+  {
+    "op": "core/text-transform",
+    "description": "Text transform on cells in column lieu_decouverte_long using expression value.replace(/\\s+/,' ')",
+    "engineConfig": {
+      "mode": "row-based",
+      "facets": [
+        {
+          "omitError": false,
+          "expression": "isBlank(value)",
+          "selectBlank": false,
+          "selection": [
+            {
+              "v": {
+                "v": false,
+                "l": "false"
+              }
+            }
+          ],
+          "selectError": false,
+          "invert": false,
+          "name": "lieu_decouverte_nom",
+          "omitBlank": false,
+          "type": "list",
+          "columnName": "lieu_decouverte_nom"
+        }
+      ]
+    },
+    "columnName": "lieu_decouverte_long",
+    "expression": "value.replace(/\\s+/,' ')",
+    "onError": "keep-original",
+    "repeat": false,
+    "repeatCount": 10
+  },
+  {
+    "op": "core/column-addition",
+    "description": "Create column lieu_decouverte_certitude at index 1 based on column id_objet using expression grel:cell.cross(\"lieu_decouverte_certitude\", \"UK_oeuvres\")[0].cells[\"certitude\"].value",
+    "engineConfig": {
+      "mode": "row-based",
+      "facets": []
+    },
+    "newColumnName": "lieu_decouverte_certitude",
+    "columnInsertIndex": 1,
+    "baseColumnName": "id_objet",
+    "expression": "grel:cell.cross(\"lieu_decouverte_certitude\", \"UK_oeuvres\")[0].cells[\"certitude\"].value",
+    "onError": "set-to-blank"
+  },
+  {
+    "op": "core/column-reorder",
+    "description": "Reorder columns",
+    "columnNames": [
+      "id_objet",
+      "classement",
+      "commentaire",
+      "texte_creation",
+      "texte_decouverte",
+      "texte_ventes",
+      "texte_musee",
+      "auteur_objet",
+      "nom_objet",
+      "type_objet",
+      "categorie_picto",
+      "matiere_filtre",
+      "dim_cm",
+      "echelle_cm",
+      "lieu_creation_nom",
+      "lieu_creation_pays",
+      "lieu_creation_lat",
+      "lieu_creation_long",
+      "lieu_creation_type",
+      "date_creation_string",
+      "date_creation_fin",
+      "date_creation_debut",
+      "lieu_decouverte_nom",
+      "lieu_decouverte_lat",
+      "lieu_decouverte_long",
+      "lieu_decouverte_pays",
+      "lieu_decouverte_certitude",
+      "lieu_decouverte_type",
+      "date_decouverte_string ",
+      "date_decouverte_fin",
+      "date_decouverte_debut",
+      "conservation_nom",
+      "conservation_id",
+      "conservation_date_entree",
+      "conservation_ville",
+      "conservation_pays",
+      "conservation_lat",
+      "conservation_long",
+      "conservation_type",
+      "URL_objet_AGORHA"
+    ]
+  },
+  {
+    "op": "core/blank-down",
+    "description": "Blank down cells in column classement",
+    "engineConfig": {
+      "mode": "row-based",
+      "facets": [
+        {
+          "omitError": false,
+          "expression": "isBlank(value)",
+          "selectBlank": false,
+          "selection": [
+            {
+              "v": {
+                "v": true,
+                "l": "true"
+              }
+            }
+          ],
+          "selectError": false,
+          "invert": false,
+          "name": "classement",
+          "omitBlank": false,
+          "type": "list",
+          "columnName": "classement"
+        }
+      ]
+    },
+    "columnName": "classement"
+  },
+  {
+    "op": "core/fill-down",
+    "description": "Fill down cells in column classement",
+    "engineConfig": {
+      "mode": "row-based",
+      "facets": [
+        {
+          "omitError": false,
+          "expression": "isBlank(value)",
+          "selectBlank": false,
+          "selection": [
+            {
+              "v": {
+                "v": true,
+                "l": "true"
+              }
+            }
+          ],
+          "selectError": false,
+          "invert": false,
+          "name": "classement",
+          "omitBlank": false,
+          "type": "list",
+          "columnName": "classement"
+        }
+      ]
+    },
+    "columnName": "classement"
+  },
+  {
+    "op": "core/fill-down",
+    "description": "Fill down cells in column classement",
+    "engineConfig": {
+      "mode": "row-based",
+      "facets": [
+        {
+          "omitError": false,
+          "expression": "isBlank(value)",
+          "selectBlank": false,
+          "selection": [
+            {
+              "v": {
+                "v": true,
+                "l": "true"
+              }
+            }
+          ],
+          "selectError": false,
+          "invert": false,
+          "name": "classement",
+          "omitBlank": false,
+          "type": "list",
+          "columnName": "classement"
+        }
+      ]
+    },
+    "columnName": "classement"
+  },
+  {
+    "op": "core/fill-down",
+    "description": "Fill down cells in column classement",
+    "engineConfig": {
+      "mode": "row-based",
+      "facets": [
+        {
+          "omitError": false,
+          "expression": "isBlank(value)",
+          "selectBlank": false,
+          "selection": [
+            {
+              "v": {
+                "v": true,
+                "l": "true"
+              }
+            }
+          ],
+          "selectError": false,
+          "invert": false,
+          "name": "classement",
+          "omitBlank": false,
+          "type": "list",
+          "columnName": "classement"
+        }
+      ]
+    },
+    "columnName": "classement"
+  },
+  {
+    "op": "core/blank-down",
+    "description": "Blank down cells in column classement",
+    "engineConfig": {
+      "mode": "row-based",
+      "facets": [
+        {
+          "omitError": false,
+          "expression": "isBlank(value)",
+          "selectBlank": false,
+          "selection": [
+            {
+              "v": {
+                "v": true,
+                "l": "true"
+              }
+            }
+          ],
+          "selectError": false,
+          "invert": false,
+          "name": "classement",
+          "omitBlank": false,
+          "type": "list",
+          "columnName": "classement"
+        }
+      ]
+    },
+    "columnName": "classement"
+  },
+  {
+    "op": "core/fill-down",
+    "description": "Fill down cells in column classement",
+    "engineConfig": {
+      "mode": "row-based",
+      "facets": [
+        {
+          "omitError": false,
+          "expression": "isBlank(value)",
+          "selectBlank": false,
+          "selection": [
+            {
+              "v": {
+                "v": true,
+                "l": "true"
+              }
+            }
+          ],
+          "selectError": false,
+          "invert": false,
+          "name": "classement",
+          "omitBlank": false,
+          "type": "list",
+          "columnName": "classement"
+        }
+      ]
+    },
+    "columnName": "classement"
+  },
+  {
+    "op": "core/blank-down",
+    "description": "Blank down cells in column classement",
+    "engineConfig": {
+      "mode": "row-based",
+      "facets": [
+        {
+          "omitError": false,
+          "expression": "isBlank(value)",
+          "selectBlank": false,
+          "selection": [
+            {
+              "v": {
+                "v": true,
+                "l": "true"
+              }
+            }
+          ],
+          "selectError": false,
+          "invert": false,
+          "name": "classement",
+          "omitBlank": false,
+          "type": "list",
+          "columnName": "classement"
+        }
+      ]
+    },
+    "columnName": "classement"
+  },
+  {
+    "op": "core/mass-edit",
+    "description": "Mass edit cells in column classement",
+    "engineConfig": {
+      "mode": "row-based",
+      "facets": [
+        {
+          "omitError": false,
+          "expression": "isBlank(value)",
+          "selectBlank": false,
+          "selection": [
+            {
+              "v": {
+                "v": false,
+                "l": "false"
+              }
+            }
+          ],
+          "selectError": false,
+          "invert": false,
+          "name": "classement",
+          "omitBlank": false,
+          "type": "list",
+          "columnName": "classement"
+        }
+      ]
+    },
+    "columnName": "classement",
+    "expression": "value",
+    "edits": [
+      {
+        "fromBlank": false,
+        "fromError": false,
+        "from": [
+          "2"
+        ],
+        "to": ""
+      }
+    ]
+  },
+  {
+    "op": "core/mass-edit",
+    "description": "Mass edit cells in column classement",
+    "engineConfig": {
+      "mode": "row-based",
+      "facets": [
+        {
+          "omitError": false,
+          "expression": "isBlank(value)",
+          "selectBlank": false,
+          "selection": [
+            {
+              "v": {
+                "v": true,
+                "l": "true"
+              }
+            }
+          ],
+          "selectError": false,
+          "invert": false,
+          "name": "classement",
+          "omitBlank": false,
+          "type": "list",
+          "columnName": "classement"
+        }
+      ]
+    },
+    "columnName": "classement",
+    "expression": "value",
+    "edits": [
+      {
+        "fromBlank": false,
+        "fromError": false,
+        "from": [
+          ""
+        ],
+        "to": "2"
+      }
+    ]
+  },
+  {
+    "op": "core/fill-down",
+    "description": "Fill down cells in column classement",
+    "engineConfig": {
+      "mode": "row-based",
+      "facets": [
+        {
+          "omitError": false,
+          "expression": "isBlank(value)",
+          "selectBlank": false,
+          "selection": [
+            {
+              "v": {
+                "v": true,
+                "l": "true"
+              }
+            }
+          ],
+          "selectError": false,
+          "invert": false,
+          "name": "classement",
+          "omitBlank": false,
+          "type": "list",
+          "columnName": "classement"
+        }
+      ]
+    },
+    "columnName": "classement"
+  },
+  {
+    "op": "core/column-addition",
+    "description": "Create column LARGEUR at index 1 based on column id_objet using expression grel:cell.cross(\"objets_longs_dorigine\", \"NUM_NOTICE\")[0].cells[\"LARGEUR\"].value",
+    "engineConfig": {
+      "mode": "row-based",
+      "facets": [
+        {
+          "mode": "text",
+          "invert": false,
+          "caseSensitive": false,
+          "query": "",
+          "name": "id_objet",
+          "type": "text",
+          "columnName": "id_objet"
+        }
+      ]
+    },
+    "newColumnName": "LARGEUR",
+    "columnInsertIndex": 1,
+    "baseColumnName": "id_objet",
+    "expression": "grel:cell.cross(\"objets_longs_dorigine\", \"NUM_NOTICE\")[0].cells[\"LARGEUR\"].value",
+    "onError": "set-to-blank"
+  },
+  {
+    "op": "core/column-removal",
+    "description": "Remove column LARGEUR",
+    "columnName": "LARGEUR"
+  },
+  {
+    "op": "core/column-addition",
+    "description": "Create column autre dimension at index 1 based on column id_objet using expression grel:cell.cross(\"objets_longs_dorigine\", \"NUM_NOTICE\")[0].cells[\"PRECISIONS_DIMENSIONS\"].value",
+    "engineConfig": {
+      "mode": "row-based",
+      "facets": [
+        {
+          "mode": "text",
+          "invert": false,
+          "caseSensitive": false,
+          "query": "",
+          "name": "nom_objet",
+          "type": "text",
+          "columnName": "nom_objet"
+        }
+      ]
+    },
+    "newColumnName": "autre dimension",
+    "columnInsertIndex": 1,
+    "baseColumnName": "id_objet",
+    "expression": "grel:cell.cross(\"objets_longs_dorigine\", \"NUM_NOTICE\")[0].cells[\"PRECISIONS_DIMENSIONS\"].value",
+    "onError": "set-to-blank"
+  },
+  {
+    "op": "core/column-removal",
+    "description": "Remove column autre dimension",
+    "columnName": "autre dimension"
+  },
+  {
+    "op": "core/column-addition",
+    "description": "Create column AUTRES_DIMENSIONS at index 1 based on column id_objet using expression grel:cell.cross(\"objets_longs_dorigine\", \"NUM_NOTICE\")[0].cells[\"AUTRES_DIMENSIONS\"].value",
+    "engineConfig": {
+      "mode": "row-based",
+      "facets": []
+    },
+    "newColumnName": "AUTRES_DIMENSIONS",
+    "columnInsertIndex": 1,
+    "baseColumnName": "id_objet",
+    "expression": "grel:cell.cross(\"objets_longs_dorigine\", \"NUM_NOTICE\")[0].cells[\"AUTRES_DIMENSIONS\"].value",
+    "onError": "set-to-blank"
+  },
+  {
+    "op": "core/column-split",
+    "description": "Split column AUTRES_DIMENSIONS by separator",
+    "engineConfig": {
+      "mode": "row-based",
+      "facets": [
+        {
+          "omitError": false,
+          "expression": "isBlank(value)",
+          "selectBlank": false,
+          "selection": [
+            {
+              "v": {
+                "v": false,
+                "l": "false"
+              }
+            }
+          ],
+          "selectError": false,
+          "invert": false,
+          "name": "AUTRES_DIMENSIONS",
+          "omitBlank": false,
+          "type": "list",
+          "columnName": "AUTRES_DIMENSIONS"
+        }
+      ]
+    },
+    "columnName": "AUTRES_DIMENSIONS",
+    "guessCellType": false,
+    "removeOriginalColumn": false,
+    "mode": "separator",
+    "separator": "#",
+    "regex": false,
+    "maxColumns": 0
+  },
+  {
+    "op": "core/column-removal",
+    "description": "Remove column AUTRES_DIMENSIONS",
+    "columnName": "AUTRES_DIMENSIONS"
+  },
+  {
+    "op": "core/column-removal",
+    "description": "Remove column AUTRES_DIMENSIONS 2",
+    "columnName": "AUTRES_DIMENSIONS 2"
+  },
+  {
+    "op": "core/text-transform",
+    "description": "Text transform on cells in column AUTRES_DIMENSIONS 1 using expression value.trim()",
+    "engineConfig": {
+      "mode": "row-based",
+      "facets": [
+        {
+          "omitError": false,
+          "expression": "isBlank(value)",
+          "selectBlank": false,
+          "selection": [
+            {
+              "v": {
+                "v": false,
+                "l": "false"
+              }
+            }
+          ],
+          "selectError": false,
+          "invert": false,
+          "name": "AUTRES_DIMENSIONS 1",
+          "omitBlank": false,
+          "type": "list",
+          "columnName": "AUTRES_DIMENSIONS 1"
+        }
+      ]
+    },
+    "columnName": "AUTRES_DIMENSIONS 1",
+    "expression": "value.trim()",
+    "onError": "keep-original",
+    "repeat": false,
+    "repeatCount": 10
+  },
+  {
+    "op": "core/text-transform",
+    "description": "Text transform on cells in column AUTRES_DIMENSIONS 1 using expression value.replace(/\\s+/,' ')",
+    "engineConfig": {
+      "mode": "row-based",
+      "facets": [
+        {
+          "omitError": false,
+          "expression": "isBlank(value)",
+          "selectBlank": false,
+          "selection": [
+            {
+              "v": {
+                "v": false,
+                "l": "false"
+              }
+            }
+          ],
+          "selectError": false,
+          "invert": false,
+          "name": "AUTRES_DIMENSIONS 1",
+          "omitBlank": false,
+          "type": "list",
+          "columnName": "AUTRES_DIMENSIONS 1"
+        }
+      ]
+    },
+    "columnName": "AUTRES_DIMENSIONS 1",
+    "expression": "value.replace(/\\s+/,' ')",
+    "onError": "keep-original",
+    "repeat": false,
+    "repeatCount": 10
+  },
+  {
+    "op": "core/text-transform",
+    "description": "Text transform on cells in column AUTRES_DIMENSIONS 1 using expression grel:\"(\"+ value.replace(\"/\",\":\") + \")\"",
+    "engineConfig": {
+      "mode": "row-based",
+      "facets": [
+        {
+          "omitError": false,
+          "expression": "isBlank(value)",
+          "selectBlank": false,
+          "selection": [
+            {
+              "v": {
+                "v": false,
+                "l": "false"
+              }
+            }
+          ],
+          "selectError": false,
+          "invert": false,
+          "name": "AUTRES_DIMENSIONS 1",
+          "omitBlank": false,
+          "type": "list",
+          "columnName": "AUTRES_DIMENSIONS 1"
+        }
+      ]
+    },
+    "columnName": "AUTRES_DIMENSIONS 1",
+    "expression": "grel:\"(\"+ value.replace(\"/\",\":\") + \")\"",
+    "onError": "keep-original",
+    "repeat": false,
+    "repeatCount": 10
+  },
+  {
+    "op": "core/column-addition",
+    "description": "Create column toto at index 14 based on column dim_cm using expression grel:value + cells[\"AUTRES_DIMENSIONS\"].value",
+    "engineConfig": {
+      "mode": "row-based",
+      "facets": []
+    },
+    "newColumnName": "toto",
+    "columnInsertIndex": 14,
+    "baseColumnName": "dim_cm",
+    "expression": "grel:value + cells[\"AUTRES_DIMENSIONS\"].value",
+    "onError": "set-to-blank"
+  },
+  {
+    "op": "core/column-removal",
+    "description": "Remove column toto",
+    "columnName": "toto"
+  },
+  {
+    "op": "core/column-rename",
+    "description": "Rename column AUTRES_DIMENSIONS 1 to AUTRES_DIM",
+    "oldColumnName": "AUTRES_DIMENSIONS 1",
+    "newColumnName": "AUTRES_DIM"
+  },
+  {
+    "op": "core/text-transform",
+    "description": "Text transform on cells in column dim_cm using expression grel:value + \"cm\"",
+    "engineConfig": {
+      "mode": "row-based",
+      "facets": [
+        {
+          "omitError": false,
+          "expression": "isBlank(value)",
+          "selectBlank": false,
+          "selection": [
+            {
+              "v": {
+                "v": false,
+                "l": "false"
+              }
+            }
+          ],
+          "selectError": false,
+          "invert": false,
+          "name": "AUTRES_DIM",
+          "omitBlank": false,
+          "type": "list",
+          "columnName": "AUTRES_DIM"
+        }
+      ]
+    },
+    "columnName": "dim_cm",
+    "expression": "grel:value + \"cm\"",
+    "onError": "keep-original",
+    "repeat": false,
+    "repeatCount": 10
+  },
+  {
+    "op": "core/text-transform",
+    "description": "Text transform on cells in column dim_cm using expression grel:value + \" \" + cells[\"AUTRES_DIM\"].value",
+    "engineConfig": {
+      "mode": "row-based",
+      "facets": [
+        {
+          "omitError": false,
+          "expression": "isBlank(value)",
+          "selectBlank": false,
+          "selection": [
+            {
+              "v": {
+                "v": false,
+                "l": "false"
+              }
+            }
+          ],
+          "selectError": false,
+          "invert": false,
+          "name": "AUTRES_DIM",
+          "omitBlank": false,
+          "type": "list",
+          "columnName": "AUTRES_DIM"
+        }
+      ]
+    },
+    "columnName": "dim_cm",
+    "expression": "grel:value + \" \" + cells[\"AUTRES_DIM\"].value",
+    "onError": "keep-original",
+    "repeat": false,
+    "repeatCount": 10
+  },
+  {
+    "op": "core/column-removal",
+    "description": "Remove column AUTRES_DIM",
+    "columnName": "AUTRES_DIM"
+  },
+  {
+    "op": "core/text-transform",
+    "description": "Text transform on cells in column date_creation_fin using expression grel:\"-\" + value",
+    "engineConfig": {
+      "mode": "row-based",
+      "facets": []
+    },
+    "columnName": "date_creation_fin",
+    "expression": "grel:\"-\" + value",
+    "onError": "keep-original",
+    "repeat": false,
+    "repeatCount": 10
+  },
+  {
+    "op": "core/text-transform",
+    "description": "Text transform on cells in column date_creation_debut using expression grel:\"-\" + value",
+    "engineConfig": {
+      "mode": "row-based",
+      "facets": []
+    },
+    "columnName": "date_creation_debut",
+    "expression": "grel:\"-\" + value",
+    "onError": "keep-original",
+    "repeat": false,
+    "repeatCount": 10
+  }
+]

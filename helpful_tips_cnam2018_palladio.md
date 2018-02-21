@@ -2,7 +2,7 @@
 
 ## Palladio
 * pour accéder à l'application : http://hdlab.stanford.edu/palladio-app/#/upload
-* URL Tiles http://mapwarper.net/maps/tile/15297/{z}/{x}/{y}.png
+* URL Tiles https://mapwarper.net/maps/tile/14405/{z}/{x}/{y}.png
 * URL du SPARLEndpoint de Wikidata pour utiliser Palladio
 https://query.wikidata.org/bigdata/namespace/wdq/sparql
 * exemple de requête que l'on peut jouer de wikidata dans Palladio : http://tinyurl.com/ybrcyhb8

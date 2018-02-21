@@ -15,7 +15,8 @@
 https://tools.wmflabs.org/openrefine-wikidata/fr/api
 
 ##### Quelques exemples de "formule" utiles dans OpenRefine
-* rajouter une valeur fixe à une table : "test" + ", " + cells['UNIQUE_KEY'].value
+* rajouter une valeur fixe à une table : "valeur que tu veux ajouter" + cells['nom_delacolone'].value
+
 * exemple pour faire un rechercher/remplacer : value.replace("[MotRecherché]","[MotLeRemplaçant]")
 * Enlever tout sauf les chiffres" : replace(value,/[[a-z],[A-Z],(é|è|à|ù),\,\;\:\.\?\/\!\=\+\"\'\-\(\)\[\]]/,"")
 * Extraction d'une date de type aaaa : value.match(/.*(\d{4}).*/)[0]
@@ -25,11 +26,13 @@ https://tools.wmflabs.org/openrefine-wikidata/fr/api
 * Supprimer les espaces superflus d'une chaîne : value.trim()
 * Transformer des caractères spéciaux HTML (ex: &eacute;) : Edit cells > Common transform > Unescape HTML entities
 * extration des parenthèse : value.match(/.*(\(.*\)).*/)[0]
-* appeler une API via la fonction Fetching URL: "http://maps.google.com/maps/api/geocode/json?sensor=false&address=" + escape(value, "url")
+* extraction d'une date de type "12 janvier 1987" : value.match(/.*(\d{2} [a-z]* \d{4}).*/)[0]
+* appeler une API via la fonction Fetching URL: "http://maps.google.com/maps/api/geocode/json?sensor=false&address=" + escape(value, "url")"
 * Extraitre une info dans un json (lattitude) issue d'une requête à une API : value.parseJson().results[0].geometry.location.lat
 * Extraire l'id (ou le nom du Q) de wikidata après le réalignement: cell.recon.match.id / cell.recon.match.name
 * Template pour croiser 2 jeux de données = cell.cross("My Address Book", "friend")[0].cells["address"].value
 => cell.cross("nomduprojet", "nomColonneeCléIntermédiaire")[0].cells["nomColonneArécupérer"].value
+* pour exporter en geojson : https://gist.github.com/psychemedia/53e30d3d151fea23af68
 
 ##### Lien vers quelques ressources complémentaire
 * TUTO : “Reconcilier” une liste de nom d’architectes avec Wikidata en utilisant OpenRefine : https://medium.com/@seeksanusername/reconcilier-une-liste-darchitecte-avec-wikidata-en-utilisant-openrefine-16819fbb2903

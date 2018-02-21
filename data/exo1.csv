@@ -1,0 +1,4 @@
+code_personne,date,ville,adresse,animal_prefere,habillement,loisirs,logement
+P005,15-04-2017,LE HAVRE,15 av. Jean Jaurès,CHAT,,,
+P005,12-02-2017,Havre (Le),       15 av. Jean        Jaurès,chevaux,,,
+P005,08:01:2017,Le Havre,15 av. Jean Jaurès,"Lapin,chien",200,40,800
