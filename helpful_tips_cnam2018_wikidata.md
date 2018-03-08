@@ -20,7 +20,7 @@ WHERE
 }
 ````
 #### Afficher sous forme de grille d'images toutes les oeuvres attribuées au Caravage
-````
+````sparql
 #defaultView:ImageGrid
 SELECT DISTINCT ?item ?itemLabel (YEAR(?date) AS ?year) ?dimensions ?locationLabel ?countryLabel ?image WHERE {
   { ?item wdt:P170 wd:Q42207 . } UNION { ?item wdt:P1773 wd:Q42207 }
@@ -36,7 +36,7 @@ SELECT DISTINCT ?item ?itemLabel (YEAR(?date) AS ?year) ?dimensions ?locationLab
 
 #### Afficher sous forme de liste toutes les céramiques grecques du Metropolitan Museum pour lesquelles la base AGORHA possède des informations de provenance.
 
-````
+````sparql
 	select DISTINCT ?item ?itemLabel ?img ?idAgorha
 	where {
 		?item wdt:P31/wdt:P279* wd:Q738680 . # pottery of ancient Greece
@@ -51,7 +51,7 @@ SELECT DISTINCT ?item ?itemLabel (YEAR(?date) AS ?year) ?dimensions ?locationLab
 
 #### Afficher sous la forme d'une timeline, les propriétaires des céramiques grecques du MET 
 
-````
+````sparql
 	#defaultView:Timeline
 	select DISTINCT ?item ?itemLabel ?eventLabel ?img ?proprietairesLabel ?datedebut ?datefin
 	where {
@@ -73,7 +73,7 @@ SELECT DISTINCT ?item ?itemLabel (YEAR(?date) AS ?year) ?dimensions ?locationLab
 ````
 #### Afficher sous forme de carte toutes les sculptures publiques dans Paris
 
-````
+````sparql
 #defaultView:Map
 SELECT DISTINCT ?item  ?Titre ?createur (year(?date) as ?AnneeCreation) ?image ?coord 
 WHERE {
@@ -94,7 +94,7 @@ WHERE {
 ````
 
 #### Qui fête son anniversaire aujourd'hui
-````
+````sparql
 #Qui fête son anniversaire aujourd'hui ?
 #Whose birthday is today?
 SELECT ?entityLabel (YEAR(?date) as ?year)
@@ -113,7 +113,7 @@ LIMIT 10
 ````
 #### Classement général des causes de décès sous forme de BubbleChart
 
-````
+````sparql
 #Classement général des causes de décès
 #defaultView:BubbleChart
 #TEMPLATE={"template":"Overall causes of death ranking of ?thing ","variables":{"?thing": {"query":"SELECT ?id  (COUNT(?id) AS ?count) WHERE {  ?sub wdt:P509 ?y.  ?sub wdt:P31 ?id. } GROUP BY ?id "} } }
@@ -128,7 +128,7 @@ ORDER BY DESC(?count) ?cause
 ````
 #### Nombre de films par an et par genre sous forme d'un scatterplot avec animation
 
-````
+````sparql
 #Nombre de films par an et par genre
 #defaultView:ScatterChart
 SELECT   ?year  (COUNT(?_genre) AS ?count ) (SAMPLE(?_genreLabel) AS ?label )  (?year as ?year_shown) WHERE {
@@ -147,7 +147,7 @@ HAVING (?count > 30)
 
 
 #### Évolution du nombre d'œuvres par "Genre" entre 1500-1600. 
-````
+````sparql
 #defaultView:BarChart 
 SELECT   ?year  (COUNT(?_genre) AS ?count ) (SAMPLE(?_genreLabel) AS ?label )  (?year as ?year_shown) WHERE {
   ?item wdt:P31 wd:Q3305213.
@@ -171,7 +171,7 @@ http://tinyurl.com/ybrcyhb8
 ````
 
 #### Afficher les lieux de découverte et les lieux de conservation des objets trouvés lors de fouilles archéologiques
-````
+````sparql
 #defaultView:Map
 PREFIX wikibase: <http://wikiba.se/ontology#>
 PREFIX wd: <http://www.wikidata.org/entity/>
@@ -197,7 +197,7 @@ bd:serviceParam wikibase:language "fr,en"}
 ````
 #### Afficher sur une carte, les villes en France dont le nom se termine par "ette"
 
-````
+````sparql
 #defaultView:Map
 SELECT ?item ?itemLabel ?coord WHERE {
   ?item (wdt:P31/wdt:P279*) wd:Q486972.
@@ -209,70 +209,3 @@ SELECT ?item ?itemLabel ?coord WHERE {
 }
 ````
 
-
-
-
-
-````
-
-````
-
-
-
-
-
-
-````
-
-````
-
-
-
-
-
-
-````
-
-````
-
-
-
-
-
-
-
-````
-
-````
-
-
-
-
-
-
-````
-
-````
-
-
-
-
-
-
-
-
-
-````
-
-````
-
-
-
-
-
-
-
-
-````
-
-````
