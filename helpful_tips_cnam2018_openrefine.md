@@ -14,7 +14,12 @@
 * Adresse pour paramétrer l'outil de réalignement avec wikidata dans OpenRefine
 https://tools.wmflabs.org/openrefine-wikidata/fr/api
 
-##### Quelques exemples de "formule" utiles dans OpenRefine
+#### Pour les exercices 
+* L'URL de base pour créer une URL d'une personne dans AGORHA : http://www.purl.org/inha/agorha/002/
+
+
+
+#### Quelques exemples de "formule" utiles dans OpenRefine
 * rajouter une valeur fixe à une table : "valeur que tu veux ajouter" + cells['nom_delacolone'].value
 
 * exemple pour faire un rechercher/remplacer : value.replace("[MotRecherché]","[MotLeRemplaçant]")
