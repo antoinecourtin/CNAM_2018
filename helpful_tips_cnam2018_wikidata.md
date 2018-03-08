@@ -11,7 +11,7 @@
 ### Quelques exemples de requêtes SPARQL
 
 #### Lister uniquement l'id de éléments des oeuvres de Klimt
-````
+````sparql
 SELECT *
 WHERE
 {
