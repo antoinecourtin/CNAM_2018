@@ -16,7 +16,7 @@ https://tools.wmflabs.org/openrefine-wikidata/fr/api
 
 #### Pour les exercices 
 * L'URL de base pour créer une URL d'une personne dans AGORHA : http://www.purl.org/inha/agorha/002/
-
+* exemple proche de requête wikidata utile pour le 2nd exo : http://tinyurl.com/ycm5tr8g
 
 
 #### Quelques exemples de "formule" utiles dans OpenRefine
