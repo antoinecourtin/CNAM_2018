@@ -14,7 +14,7 @@
 * Adresse pour paramétrer l'outil de réalignement avec wikidata dans OpenRefine
 https://tools.wmflabs.org/openrefine-wikidata/fr/api
 
-#### Pour les exercices 
+#### Pour les exercices
 * L'URL de base pour créer une URL d'une personne dans AGORHA : http://www.purl.org/inha/agorha/002/
 * exemple proche de requête wikidata utile pour le 2nd exo : http://tinyurl.com/ycm5tr8g
 
@@ -23,6 +23,7 @@ https://tools.wmflabs.org/openrefine-wikidata/fr/api
 * rajouter une valeur fixe à une table : "valeur que tu veux ajouter" + cells['nom_delacolone'].value
 
 * exemple pour faire un rechercher/remplacer : value.replace("[MotRecherché]","[MotLeRemplaçant]")
+* value.replace("\"", ""). Le caractère \ est un caractère d'échappement, il permet d'indiquer à OpenRefine qu'il doit utiliser le guillemet comme caractère à remplacer et non pas comme élément de la fonction value.replace.
 * Enlever tout sauf les chiffres" : replace(value,/[[a-z],[A-Z],(é|è|à|ù),\,\;\:\.\?\/\!\=\+\"\'\-\(\)\[\]]/,"")
 * Extraction d'une date de type aaaa : value.match(/.*(\d{4}).*/)[0]
 * Calculer des longueurs de chaînes : value.length()
