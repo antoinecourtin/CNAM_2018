@@ -23,9 +23,11 @@ https://tools.wmflabs.org/openrefine-wikidata/fr/api
 * rajouter une valeur fixe à une table : "valeur que tu veux ajouter" + cells['nom_delacolone'].value
 
 * exemple pour faire un rechercher/remplacer : value.replace("[MotRecherché]","[MotLeRemplaçant]")
+* effectuer plusieurs modifications en un seul passage : value.replace("~", "").replace(",","")
 * value.replace("\"", ""). Le caractère \ est un caractère d'échappement, il permet d'indiquer à OpenRefine qu'il doit utiliser le guillemet comme caractère à remplacer et non pas comme élément de la fonction value.replace.
 * Enlever tout sauf les chiffres" : replace(value,/[[a-z],[A-Z],(é|è|à|ù),\,\;\:\.\?\/\!\=\+\"\'\-\(\)\[\]]/,"")
 * Extraction d'une date de type aaaa : value.match(/.*(\d{4}).*/)[0]
+* Supprimer les contenus semblables dans une même cellule : value.split(", ").uniques().join(", ")
 * Calculer des longueurs de chaînes : value.length()
 * Récupérer les info des parenthèses dans une chaine de charactère : value.match(/.*(\(.*\)).*/)[0]
 * Compter les mots d'une chaîne : value.split(/\b/).length()
