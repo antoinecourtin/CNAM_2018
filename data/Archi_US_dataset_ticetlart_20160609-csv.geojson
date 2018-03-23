@@ -1,0 +1,52 @@
+{ "type": "FeatureCollection",
+    "features": [
+{ "type": "Feature",
+        "geometry": {
+          "type": "Point",
+          "coordinates": [-96.79698789999999,
+                32.7766642]
+          },
+          "properties": {
+            "Nom": "Lewis Greenleaf Adams",
+            "Ville": "Etats-Unis, Dallas",
+            "Sexe": "masculin",
+            "Référence AGORHA" : "http://www.purl.org/inha/agorha/002/75113",
+            "Voir sur wikidata" : "https://www.wikidata.org/wiki/Q6536618"
+
+          }
+        },
+
+{ "type": "Feature",
+        "geometry": {
+          "type": "Point",
+          "coordinates": [-74.0059728,
+                40.7127753]
+          },
+          "properties": {
+            "Nom": "William A. Boring",
+            "Ville": "Etats-Unis, New York",
+            "Sexe": "masculin",
+            "Référence AGORHA" : "http://www.purl.org/inha/agorha/002/80167",
+            "Voir sur wikidata" : "https://www.wikidata.org/wiki/Q8003907"
+
+          }
+        },
+        { "type": "Feature",
+                "geometry": {
+                  "type": "Point",
+                  "coordinates": [-87.689510, 41.790081]
+                  },
+                  "properties": {
+                    "Nom": "Hastings, Thomas Samuel",
+                    "Ville": "Etats-Unis, Chicago",
+                    "Sexe": "masculin",
+                    "Référence AGORHA" : "http://www.purl.org/inha/agorha/002/80167",
+                    "Voir sur wikidata" : "https://www.wikidata.org/wiki/Q8003907"
+
+                  }
+                }
+
+
+
+      ]
+     }
